@@ -6,7 +6,7 @@ class Footer extends Component {
 		return (
 			<>
 				<footer id="footer">
-					<p>Copyright © Third Wave Coffee</p>
+					<p id="copyright">Copyright © Third Wave Coffee</p>
 				</footer>
 			</>
 		);

@@ -1,12 +1,45 @@
 nav {
-    background-color: #e4bc7e;
-    color: #2a190f;
-    height: 90px;
-    width: 100%;
-  }
+	background-color: #e4bc7e;
+	color: #2a190f;
+	height: 95px;
+  width: 100%;
+  position: relative;
+}
 nav img {
- max-width: 80px;
- margin-left: 1%;
- margin-top: .2%;
-  }
+	max-width: 80px;
+	margin-left: 2%;
+	margin-top: 0.2%;
+}
+nav img:hover {
+	border-bottom: 3.5px solid #000000;
+	border-radius: 7%;
+}
+#login-btn {
+  color: #2a190f;
+  font-weight: bold;
+  font-size: large;
+  position: absolute;
+  top: 32px;
+  right: 125px;
+  background-color: #d9d9d9;
+  border-color: #d9d9d9;
 
+}
+#login-btn:hover {
+  background-color: #a5a5a5;
+  border-color: #a5a5a5;
+}
+#signup-btn {
+  color: #2a190f;
+  font-weight: bold;
+  font-size: large;
+  position: absolute;
+  top: 32px;
+  right: 25px;
+  background-color: #d9d9d9;
+  border-color: #d9d9d9;
+}
+#signup-btn:hover {
+  background-color: #a5a5a5;
+  border-color: #a5a5a5;
+}

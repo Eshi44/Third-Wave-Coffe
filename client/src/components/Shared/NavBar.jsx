@@ -10,6 +10,8 @@ const NavBar = () => {
           <img className="img-responsive" src={Logo} alt="Coffee Cup Logo" />
           </a>
         </div>
+        <button type="button" id="login-btn" className="btn btn-primary">Login</button>
+        <button type="button" id="signup-btn" className="btn btn-primary">Signup</button>
       </nav>
     );
   };

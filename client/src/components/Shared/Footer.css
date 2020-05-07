@@ -8,5 +8,9 @@ footer#footer {
     text-align: center;
     font-weight: bold;
     height: 50px;
+    
  }
 
+ #copyright {
+    margin-top: 12px;
+  }
