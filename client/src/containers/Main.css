@@ -1,8 +1,15 @@
 h1 {
     text-align: center;
+    font-size: 65px;
     color: #2a190f;
     margin-top: 5%;
     padding-bottom: 2%;
     border-bottom:#e4bc7e solid 5px;
 }
-
+h5 {
+    line-height: 1.8; 
+    margin-top: 6%;
+}
+#coffee-row{
+    margin-top: 7%;
+}
