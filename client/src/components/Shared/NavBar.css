@@ -1,0 +1,12 @@
+nav {
+    background-color: #e4bc7e;
+    color: #2a190f;
+    height: 90px;
+    width: 100%;
+  }
+nav img {
+ max-width: 80px;
+ margin-left: 1%;
+ margin-top: .2%;
+  }
+
