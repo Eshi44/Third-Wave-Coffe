@@ -1,15 +1,22 @@
 import React, { Component } from "react";
 import NavBar from "../components/Shared/NavBar";
-import "./SignIn.css";
 
-class Main extends Component {
+class SignIn extends Component {
 	render() {
 		return (
 			<>
 				<NavBar />
-                <h1>hi</h1>
+				<div className="container">
+					<div className="row">
+						<div className="col-3"></div>
+						<div className="col-6">
+							<h1>Sign-In</h1>
+						</div>
+						<div className="col-3"></div>
+					</div>
+				</div>
 			</>
 		);
 	}
 }
-export default Main;
+export default SignIn;

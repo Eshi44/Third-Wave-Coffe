@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Footer from "./components/Shared/Footer";
 import Main from "./containers/Main";
 import SignIn from "./containers/SignIn";
+import SignUp from "./containers/SignUp";
 // import logo from './logo.svg';
 // import './App.css';
 // import axios from "axios";
@@ -17,6 +18,9 @@ function App() {
 					</Route>
           <Route exact path="/signin">
 						<SignIn />
+					</Route>
+          <Route exact path="/signup">
+						<SignUp />
 					</Route>
 				</Switch>
 				<Footer />
