@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "../components/Shared/NavBar";
 import "./Main.css";
+import Chemex from"../images/chemex-animated.png"
 class Main extends Component {
 	render() {
 		return (
@@ -34,9 +35,9 @@ class Main extends Component {
 
 				<div className="container">
 					<div className="row" id="coffee-row">
-						<div className="col col-sm-4 col-md-2 col-lg-2"></div>
-						<div className="col col-sm-4 col-md-6 col-lg-6"></div>
-						<div className="col col-sm-4 col-md-4 col-lg-4">What is Third Wave Coffee?(IMG)</div>
+						<div className="col col-sm-1 col-md-2 col-lg-2"></div>
+						<div className="col col-sm-3 col-md-6 col-lg-7"></div>
+						<div className="col col-sm-4 col-md-4 col-lg-3"><img className="img-responsive" src={Chemex} alt="Chemex" /></div>
 					</div>
 				</div>
                 </div>
