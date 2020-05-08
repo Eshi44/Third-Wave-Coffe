@@ -1,0 +1,23 @@
+form {
+    background-color: #d9d9d9;
+    padding-top: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 30%;
+    margin-top: -240px;
+    margin-bottom: 20%;
+    border-width: 15px;
+    border: solid #2a190f;
+}
+#login {
+    color: #2a190f;
+    font-weight: bold;
+    font-size: large;
+    background-color: #a5a5a5;
+    border-color: #a5a5a5;
+  
+  }
+  #login:hover {
+    background-color: #929292;
+    border-color: #929292;
+  }
