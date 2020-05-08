@@ -7,7 +7,7 @@ class Form extends Component {
 			<form>
                 <h2>Login</h2>
 				<div className="form-group">
-					<label>Username</label>
+					<label id="userAndPassword" >Username</label>
 					<input
 						type="email"
 						className="form-control"
@@ -17,12 +17,12 @@ class Form extends Component {
 					/>
 				</div>
 				<div className="form-group">
-					<label>Password</label>
+					<label id="userAndPassword" >Password</label>
 					<input
 						type="password"
 						className="form-control"
 						id="exampleInputPassword1"
-						placeholder="Password"
+						placeholder="Enter password"
 					/>
 				</div>
 
