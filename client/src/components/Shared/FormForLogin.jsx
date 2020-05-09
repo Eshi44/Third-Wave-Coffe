@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import "./Form.css"
-class FormForLogin extends Component {
-	render() { 
-        return(
-        		<>
+import React from "react";
+import "./Form.css";
+
+const FormForLogin = () => {
+	return (
+		<>
 			<form>
-                <h2>Login</h2>
+				<h2>Login</h2>
 				<div className="form-group">
-					<label id="userAndPassword" >Username</label>
+					<label id="userAndPassword">Username</label>
 					<input
 						type="email"
 						className="form-control"
@@ -17,7 +17,7 @@ class FormForLogin extends Component {
 					/>
 				</div>
 				<div className="form-group">
-					<label id="userAndPassword" >Password</label>
+					<label id="userAndPassword">Password</label>
 					<input
 						type="password"
 						className="form-control"
@@ -31,8 +31,7 @@ class FormForLogin extends Component {
 				</button>
 			</form>
 		</>
-    );
-    }
-}
+	);
+};
 
 export default FormForLogin;
