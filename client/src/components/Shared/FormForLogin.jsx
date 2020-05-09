@@ -3,24 +3,6 @@ import "./Form.css";
 
 class FormForLogin extends Component {
 
-	state= {
-		//controlled input
-		username: "",
-		password: ""
-	};
-
-	handleInputChange = (event) => {
-		const {name, value} = event.target
-		this.setState({
-			[name]: value
-		});
-	};
-
-	handleSubmit = (event) => {
-		event.preventDefault();
-		this.props.history.push("/dashboard")
-	};
-
 	render() {
 	return (
 		<>
