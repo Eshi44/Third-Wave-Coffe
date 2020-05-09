@@ -4,6 +4,7 @@ import Footer from "./components/Shared/Footer";
 import Main from "./containers/Main";
 import SignIn from "./containers/SignIn";
 import SignUp from "./containers/SignUp";
+import Dashboard from "./containers/Dashboard"
 
 function App() {
 	return (
@@ -18,6 +19,9 @@ function App() {
 					</Route>
 					<Route exact path="/signup">
 						<SignUp />
+					</Route>
+					<Route exact path="/dashboard">
+						<Dashboard />
 					</Route>
 				</Switch>
 				<Footer />

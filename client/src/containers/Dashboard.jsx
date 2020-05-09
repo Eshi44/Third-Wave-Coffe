@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 
-class User extends Component {
+class Dashboard extends Component {
     render() { (	
 
         <>
@@ -10,4 +10,4 @@ class User extends Component {
     );
 	}
 }
-export default User;
+export default Dashboard;
