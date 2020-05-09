@@ -3,6 +3,9 @@ import NavBar from "../components/Shared/NavBar";
 import FormForLogin from "../components/Shared/FormForLogin";
 
 class SignIn extends Component {
+
+
+
 	render() {
 		const bckcolor = {
 			backgroundColor: "#fff0d9",

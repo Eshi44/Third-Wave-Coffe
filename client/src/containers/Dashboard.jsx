@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 
 class Dashboard extends Component {
-    render() { (	
+    render() { 
+        return (	
 
         <>
         <h3>User</h3>
