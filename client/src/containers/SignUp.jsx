@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import NavBar from "../components/Shared/NavBar";
+import FormForSignUp from "../components/Shared/FormForSignUp";
 
 class SignUp extends Component {
 	render() {
 		const bckcolor = {
-            backgroundColor: "#fff0d9",
-            height: 500
-        };
+			backgroundColor: "#fff0d9",
+			height: 500,
+		};
 		return (
 			<>
 				<NavBar />
@@ -18,6 +19,13 @@ class SignUp extends Component {
 						</div>
 						<div className="col-3"></div>
 					</div>
+				</div>
+				<div className="row">
+					<div className="col-4"></div>
+					<div className="col-4">
+						<FormForSignUp />
+					</div>
+					<div className="col-4"></div>
 				</div>
 			</>
 		);

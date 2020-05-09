@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Form.css"
-class Form extends Component {
+class FormForSignUp extends Component {
 	render() { 
         return(
         		<>
@@ -27,7 +27,7 @@ class Form extends Component {
 				</div>
 
 				<button type="submit" id="login" className="btn btn-primary">
-					Login
+					Sign Up
 				</button>
 			</form>
 		</>
@@ -35,4 +35,4 @@ class Form extends Component {
     }
 }
 
-export default Form;
+export default FormForSignUp;
