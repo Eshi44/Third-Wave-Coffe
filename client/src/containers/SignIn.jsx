@@ -15,12 +15,13 @@ class SignIn extends Component {
 		const { name, value } = event.target;
 		this.setState({
 			[name]: value,
+			error:false
 		});
 	};
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		
+
 		axios
 			.post("/api/users", {
 				username: this.state.username,
@@ -28,11 +29,11 @@ class SignIn extends Component {
 			})
 			.then((response) => {
 				console.log(response);
-				this.props.history.push("/dashboard");
+				this.props.history.push(`/dashboard/${response.data.data._id}`);
 			})
 			.catch((err) => {
 				console.log(err);
-				this.setState({error:true});
+				this.setState({ error: true });
 			});
 	};
 
@@ -55,14 +56,12 @@ class SignIn extends Component {
 					</div>
 
 					{this.state.error && (
-					<div className="row justify-content-center">
-					<div className="alert alert-danger" role="alert">
-							Incorrect username or password!
+						<div className="row justify-content-center">
+							<div className="alert alert-danger" role="alert">
+								Incorrect username or password!
+							</div>
 						</div>
-					</div>
 					)}
-
-
 				</div>
 				<div className="row">
 					<div className="col-4"></div>

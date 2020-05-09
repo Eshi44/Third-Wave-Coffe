@@ -19,9 +19,7 @@ function App(props) {
 					<Route exact path="/signup">
 						<SignUp />
 					</Route>
-					<Route exact path="/dashboard">
-						<Dashboard />
-					</Route>
+					<Route path="/dashboard/:id" component={(props) => <Dashboard {...props} />} />
 					<Route path="*">
 						<NotFound />
 					</Route>
