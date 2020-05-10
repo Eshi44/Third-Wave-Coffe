@@ -1,29 +1,44 @@
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+html,
+body {
+	max-width: 100%;
+	overflow-x: hidden;
 }
 h1 {
-    text-align: center;
-    font-size: 65px;
-    color: #2a190f;
-    margin-top: 5%;
-    padding-bottom: 2%;
-    border-bottom:#e4bc7e solid 5px;
+	text-align: center;
+	font-size: 65px;
+	color: #2a190f;
+	margin-top: 5%;
+	padding-bottom: 2%;
+	border-bottom: #e4bc7e solid 5px;
 }
 h5 {
-    line-height: 1.8; 
-    margin-top: 6%;
+	line-height: 1.8;
+	margin-top: 6%;
 }
-#coffee-row{
-    margin-top: 5%;
-    margin-bottom: 10%;
+#coffee-row {
+	margin-top: 5%;
+	margin-bottom: 10%;
 }
 
 #coffee-row img {
-    max-width: 150px;
+	max-width: 150px;
 }
 .alert {
-    margin-top: 2%;
-    font-size: 20px;
-    font-weight: bold;
+	margin-top: 2%;
+	font-size: 20px;
+	font-weight: bold;
+}
+.row.three-coffee-methods {
+	padding-top: 15%;
+	padding-bottom: 10%;
+}
+
+#coffee-rows {
+	margin-top: 22%;
+	margin-bottom: 10%;
+}
+
+#coffee-rows img {
+	width: 250px;
+	height: 250px;
 }
