@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NavBar from "../components/Shared/NavBar";
-// import FormForLogin from "../components/Shared/FormForLogin";
 import axios from "axios";
 import Input from "../components/Shared/Input";
 
@@ -69,21 +68,9 @@ class SignIn extends Component {
 				<div className="row">
 					<div className="col-4"></div>
 					<div className="col-4">
-						{/* <FormForLogin /> */}
+					
 						<form onSubmit={this.handleSubmit}>
 							<h2>Login</h2>
-							{/* <div className="form-group">
-								<label id="userAndPassword">Username</label>
-								<input
-									className="form-control"
-									id="exampleInputEmail1"
-									aria-describedby="emailHelp"
-									placeholder="Enter username"
-									name="username"
-									value={this.state.username}
-									onChange={this.handleInputChange}
-								/>
-							</div> */}
 							<Input 
 							id="username"
 							type="username"
@@ -93,18 +80,7 @@ class SignIn extends Component {
 							handleChange={this.handleInputChange}
 
 							/>
-							{/* <div className="form-group">
-								<label id="userAndPassword">Password</label>
-								<input
-									type="password"
-									className="form-control"
-									id="exampleInputPassword1"
-									placeholder="Enter password"
-									name="password"
-									value={this.state.password}
-									onChange={this.handleInputChange}
-								/>
-							</div> */}
+
 								<Input 
 							id="password"
 							type="password"
