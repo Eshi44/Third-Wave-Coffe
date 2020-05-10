@@ -2,20 +2,22 @@ import React, { Component } from "react";
 import NavBar from "../components/Shared/NavBar";
 // import FormForLogin from "../components/Shared/FormForLogin";
 import axios from "axios";
+import Input from "../components/Shared/Input";
 
 class SignIn extends Component {
 	state = {
 		//controlled input
 		username: "",
 		password: "",
-		error: false,
+		//empty string is 'falsey'
+		error: "",
 	};
 
 	handleInputChange = (event) => {
 		const { name, value } = event.target;
 		this.setState({
 			[name]: value,
-			error:false
+			error: ""
 		});
 	};
 
@@ -33,7 +35,8 @@ class SignIn extends Component {
 			})
 			.catch((err) => {
 				console.log(err);
-				this.setState({ error: true });
+				console.log(err.response.data.message);
+				this.setState({ error: err.response.data.message });
 			});
 	};
 
@@ -58,7 +61,7 @@ class SignIn extends Component {
 					{this.state.error && (
 						<div className="row justify-content-center">
 							<div className="alert alert-danger" role="alert">
-								Incorrect username or password!
+							{this.state.error}
 							</div>
 						</div>
 					)}
@@ -69,7 +72,7 @@ class SignIn extends Component {
 						{/* <FormForLogin /> */}
 						<form onSubmit={this.handleSubmit}>
 							<h2>Login</h2>
-							<div className="form-group">
+							{/* <div className="form-group">
 								<label id="userAndPassword">Username</label>
 								<input
 									className="form-control"
@@ -80,8 +83,17 @@ class SignIn extends Component {
 									value={this.state.username}
 									onChange={this.handleInputChange}
 								/>
-							</div>
-							<div className="form-group">
+							</div> */}
+							<Input 
+							id="username"
+							type="username"
+							name="username"
+							label="Username"
+							value={this.state.ussername}
+							handleChange={this.handleInputChange}
+
+							/>
+							{/* <div className="form-group">
 								<label id="userAndPassword">Password</label>
 								<input
 									type="password"
@@ -92,7 +104,16 @@ class SignIn extends Component {
 									value={this.state.password}
 									onChange={this.handleInputChange}
 								/>
-							</div>
+							</div> */}
+								<Input 
+							id="password"
+							type="password"
+							name="password"
+							label="Password"
+							value={this.state.password}
+							handleChange={this.handleInputChange}
+
+							/>
 
 							<button type="submit" id="login" className="btn btn-primary">
 								Login
