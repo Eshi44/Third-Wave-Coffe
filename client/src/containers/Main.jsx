@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NavBar from "../components/Shared/NavBar";
+import NavBar from "../components/Shared/NavBar/NavBar";
 import "./Main.css";
 import Chemex from"../images/chemex-animated.png"
 class Main extends Component {

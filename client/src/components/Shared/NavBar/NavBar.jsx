@@ -1,6 +1,6 @@
 import React from "react";
 import "./NavBar.css";
-import Logo from "../../images/coffee-mug-with-steam.png";
+import Logo from "../../../images/coffee-mug-with-steam.png";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {

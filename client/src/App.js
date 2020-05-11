@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Footer from "./components/Shared/Footer";
+import Footer from "./components/Shared/Footer/Footer";
 import Main from "./containers/Main";
 import SignIn from "./containers/SignIn";
 import SignUp from "./containers/SignUp";
-import Dashboard from "./containers/Dashboard";
+import Dashboard from "./containers/Dashboard/Dashboard";
 import NotFound from "./containers/NotFound";
 import Preferences from "./containers/Preferences";
 import Brew from "./containers/Brew";

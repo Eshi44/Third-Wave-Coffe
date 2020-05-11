@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../components/Shared/Header/Header";
 
+
 class Chemex extends Component {
 	constructor() {
 		super();
@@ -16,7 +17,6 @@ class Chemex extends Component {
 		return (
 			<div>
 				<Header name={this.state.name} />
-				
 			</div>
 		);
 	}

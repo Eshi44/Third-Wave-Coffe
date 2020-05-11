@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NavBar from "../components/Shared/NavBar";
+import NavBar from "../components/Shared/NavBar/NavBar";
 import FormForSignUp from "../components/Shared/FormForSignUp";
 
 class SignUp extends Component {

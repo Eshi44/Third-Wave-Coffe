@@ -1,0 +1,12 @@
+/* history image re-size & float */
+#history img {
+	width: 20%;
+	margin-top: 5%;
+	float: right;
+}
+/* tracker image re-size & float */
+#tracker img {
+	width: 20%;
+	margin-top: 5%;
+	float: left;
+}

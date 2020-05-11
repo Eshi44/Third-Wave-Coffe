@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NavBar from "../components/Shared/NavBar";
+import NavBar from "../components/Shared/NavBar/NavBar";
 import axios from "axios";
 import Input from "../components/Shared/Input";
 
