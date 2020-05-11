@@ -1,10 +1,21 @@
 import React from "react";
+import "./Header.css";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+
+
+const Header = (props) => {
+
 	return (
 		<>
 			<header id="header">
-				<p >hello</p>
+			<Link to="/dashboard/:id">
+				<button type="button" id="dashboard" className="btn btn-primary">
+					Dashboard
+				</button>
+				
+			</Link>
+			<p id="preferencesHeader">{props.name}</p>
 			</header>
 		</>
 	);
