@@ -1,0 +1,21 @@
+#errorContainer {
+	margin-top: 5%;
+}
+#error {
+	font-size: 80px;
+	color: #2a190f;
+	font-weight: bold;
+}
+#errorCup {
+	height: 50%;
+	position: relative;
+	top: 0;
+    left: 0;
+    z-index: -1;
+}
+#steam {
+	height: 15%;
+	position: absolute;
+	top: 90px;
+    left: 140px;   
+}
