@@ -28,6 +28,7 @@
 	width: 270px;
 	height: 270px;
 }
+/* hover underline for tracker and history */
 #hover:hover {
 	border-bottom: 3px solid #e4bc7e;
 	padding-bottom: 1%;

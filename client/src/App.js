@@ -6,7 +6,7 @@ import SignIn from "./containers/SignIn";
 import SignUp from "./containers/SignUp";
 import Dashboard from "./containers/Dashboard/Dashboard";
 import NotFound from "./containers/NotFound";
-import Preferences from "./containers/Preferences";
+import Preferences from "./containers/Preferences/Preferences";
 import Brew from "./containers/Brew/Brew";
 import History from "./containers/History/History";
 import Tracker from "./containers/Tracker/Tracker";

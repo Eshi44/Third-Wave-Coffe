@@ -1,0 +1,8 @@
+/* card top margin */
+#cardCalculation {
+    margin-top: 5%;
+}
+/* card border color */
+div#card-body{
+    border-color: black;
+}
