@@ -1,3 +1,4 @@
+/* navbar */
 nav {
 	background-color: #e4bc7e;
 	color: #2a190f;
@@ -5,15 +6,18 @@ nav {
   width: 100%;
   position: relative;
 }
+/* navbar logo */
 nav img {
 	max-width: 80px;
 	margin-left: 2%;
 	margin-top: 0.2%;
 }
+/* navbar logo hover features */
 nav img:hover {
 	border-bottom: 3.5px solid #000000;
 	border-radius: 7%;
 }
+/* login btn */
 #login-btn {
   color: #2a190f;
   font-weight: bold;
@@ -25,10 +29,12 @@ nav img:hover {
   border-color: #b6b6b6;
   border-width: 3px;
 }
+/* login btn hover */
 #login-btn:hover {
   background-color: #a5a5a5;
   border-color: #a5a5a5;
 }
+/* signup btn */
 #signup-btn {
   color: #2a190f;
   font-weight: bold;
@@ -40,6 +46,7 @@ nav img:hover {
   border-color: #b6b6b6;
   border-width: 3px;
 }
+/* signup btn hover */
 #signup-btn:hover {
   background-color: #a5a5a5;
   border-color: #a5a5a5;

@@ -1,3 +1,4 @@
+/* footer */
 footer#footer {
     position: fixed;
     left: 0;
@@ -8,8 +9,8 @@ footer#footer {
     text-align: center;
     font-weight: bold;
     height: 50px;
-    
  }
+ /* footer text alignment */
  #copyright {
     margin-top: 12px;
   }

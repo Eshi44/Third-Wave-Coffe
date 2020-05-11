@@ -20,7 +20,9 @@ class Chemex extends Component {
 				</div>
 				<div className="container" id="cardCalculation">
 					<div className="card" id="card-body">
-						<div className="card-body">This is some text within a card body.</div>
+						<div className="card-body">
+							This is some text within a card body.
+						</div>
 					</div>
 				</div>
 			</>

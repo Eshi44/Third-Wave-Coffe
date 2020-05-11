@@ -1,3 +1,4 @@
+/* header background */
 header {
 	background-color: #fff0d9;
 	color: #2a190f;
@@ -5,21 +6,24 @@ header {
 	width: 100%;
 	position: relative;
 }
+/* user dashboard button */
 #dashboard {
 	color: #2a190f;
 	font-weight: bold;
 	font-size: large;
-	background-color: #d9d9d9;
-	border-color: #b6b6b6;
+	background-color: #e4bc7e;
+	border-color: #d3a664;
 	border-width: 3px;
 	margin-left: 2%;
 	margin-top: 1.2%;
 	float: left;
 }
+/* user dashboard button hover features */
 #dashboard:hover {
-	background-color: #a5a5a5;
-	border-color: #a5a5a5;
+	background-color: #d3a664;
+	border-color: #d3a664;
 }
+/* dashboard title */
 #preferencesHeader {
 	font-size: 50px;
 	font-weight: bold;
