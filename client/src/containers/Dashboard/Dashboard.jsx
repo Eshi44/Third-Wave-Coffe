@@ -17,13 +17,13 @@ class Dashboard extends Component {
 					<div className="row">
 						<div className="col col-sm-4 col-md-4 col-lg-4" id="tracker">
 							<Link to="/tracker">
-								<img className="img-responsive" src={Tracker} alt="Tracker" />
+								<img className="img-responsive" id="hover" src={Tracker} alt="Tracker" />
 							</Link>
 						</div>
 						<div className="col col-sm-4 col-md-4 col-lg-4"></div>
 						<div className="col col-sm-4 col-md-4 col-lg-4" id="history">
 							<Link to="/history">
-								<img className="img-responsive" src={History} alt="History" />
+								<img className="img-responsive" id="hover" src={History} alt="History" />
 							</Link>{" "}
 						</div>
 					</div>
@@ -31,26 +31,31 @@ class Dashboard extends Component {
 				<div className="container">
 					<div className="row " id="coffee-rows">
 						<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-							<Link to="/preferences?aeropress">
+							<Link to="/preferences?aeropress" style={{ textDecorationColor: "#e4bc7e" }}>
 								<img
 									className="img-responsive"
 									src={Aeropress}
 									alt="Aeropress"
 								/>
+								<h2 id="coffeeMethodTitle">Aeropress</h2>
 							</Link>
 						</div>
 						<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-							<Link to="/preferences?chemex">
-								<img className="img-responsive" src={Chemex} alt="Chemex" />
+							<Link to="/preferences?chemex" style={{ textDecorationColor: "#e4bc7e" }}>
+								<img className="img-responsive" 
+								src={Chemex} 
+								alt="Chemex" />
+								<h2 id="coffeeMethodTitle">Chemex</h2>
 							</Link>
 						</div>
 						<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-							<Link to="/preferences?frenchpress">
+							<Link to="/preferences?frenchpress" style={{ textDecorationColor: "#e4bc7e" }}>
 								<img
 									className="img-responsive"
 									src={Frenchpress}
 									alt="Frenchpress"
 								/>
+								<h2 id="coffeeMethodTitle">Frenchpress</h2>
 							</Link>
 						</div>
 					</div>

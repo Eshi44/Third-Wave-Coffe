@@ -3,10 +3,32 @@
 	width: 20%;
 	margin-top: 5%;
 	float: right;
+	margin-right: 5%;
 }
 /* tracker image re-size & float */
 #tracker img {
 	width: 20%;
 	margin-top: 5%;
 	float: left;
+	margin-left: 5%;
+}
+/* method title */
+#coffeeMethodTitle {
+	margin-left: 2%;
+	text-align:center;
+	color: #2a190f;		
+}
+/* coffee method margins */
+#coffee-rows {
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+/* coffee method image size */
+#coffee-rows img {
+	width: 270px;
+	height: 270px;
+}
+#hover:hover {
+	border-bottom: 3px solid #e4bc7e;
+	padding-bottom: 1%;
 }

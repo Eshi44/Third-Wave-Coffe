@@ -7,7 +7,6 @@ class Chemex extends Component {
 		super();
 		var queryString = window.location.search;
 		var method = queryString.split('?')[1];
-
 		// console.log(method);
 		this.state = {
 			name: method,
