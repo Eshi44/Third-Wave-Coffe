@@ -5,7 +5,7 @@ const FormForSignUp = () => {
 	return (
 		<>
 			<form>
-				<h2>Login</h2>
+				<h2>Signup</h2>
 				<div className="form-group">
 					<label id="userAndPassword">Username</label>
 					<input

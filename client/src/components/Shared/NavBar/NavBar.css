@@ -19,11 +19,11 @@ nav img:hover {
   font-weight: bold;
   font-size: large;
   position: absolute;
-  top: 32px;
+  top: 30px;
   right: 125px;
   background-color: #d9d9d9;
   border-color: #b6b6b6;
-
+  border-width: 3px;
 }
 #login-btn:hover {
   background-color: #a5a5a5;
@@ -34,10 +34,11 @@ nav img:hover {
   font-weight: bold;
   font-size: large;
   position: absolute;
-  top: 32px;
+  top: 30px;
   right: 25px;
   background-color: #d9d9d9;
   border-color: #b6b6b6;
+  border-width: 3px;
 }
 #signup-btn:hover {
   background-color: #a5a5a5;

@@ -20,6 +20,7 @@ h2 {
 	font-size: large;
 	background-color: #a5a5a5;
 	border-color: #919191;
+	border-width: 3px;
 	margin: auto;
     display: block;
     margin-top: 15%;

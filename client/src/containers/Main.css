@@ -11,9 +11,17 @@ h1 {
 	padding-bottom: 2%;
 	border-bottom: #e4bc7e solid 5px;
 }
+h4 {
+	margin-top: 5%;
+	color: #2a190f;
+	font-size: 35px;
+	font-family: 'Lobster', cursive;
+}
 h5 {
 	line-height: 1.8;
-	margin-top: 6%;
+	color: #2a190f;
+	font-weight: 450;
+	margin-top: 3%;
 }
 #coffee-row {
 	margin-top: 5%;

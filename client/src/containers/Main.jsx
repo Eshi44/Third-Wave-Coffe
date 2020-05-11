@@ -22,6 +22,7 @@ class Main extends Component {
 					<div className="row">
 						<div className="col col-sm-2 col-md-2 col-lg-2"></div>
 						<div className="col col-sm-8 col-md-6 col-lg-6">
+							<h4>What is Third Wave Coffee?</h4>
 							<h5>
 								Lorem ipsum dolor sit amet consectetur, adipisicing elit.
 								Quibusdam officiis quaerat unde magnam esse iusto reprehenderit

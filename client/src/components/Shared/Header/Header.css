@@ -11,10 +11,10 @@ header {
 	font-size: large;
 	background-color: #d9d9d9;
 	border-color: #b6b6b6;
+	border-width: 3px;
 	margin-left: 2%;
 	margin-top: 1.2%;
 	float: left;
-	
 }
 #dashboard:hover {
 	background-color: #a5a5a5;
