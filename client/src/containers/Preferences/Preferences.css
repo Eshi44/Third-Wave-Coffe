@@ -106,3 +106,18 @@ div#card-body{
 #roastInputThree:hover{
     border: solid black;
 }
+/* brew btn */
+#brew-btn {
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    background-color: #e4bc7e;
+	border-color: #d3a664;
+    border-width: 3px;
+    margin-top: 40%;
+}
+/* brew btn hover features */
+#brew-btn:hover {
+	background-color: #d3a664;
+	border-color: #d3a664;
+}

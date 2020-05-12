@@ -7,6 +7,7 @@ import LargeCup from "../../images/large-cup.png";
 import LightRoast from "../../images/light-roast.png";
 import MedRoast from "../../images/medium-roast.png";
 import DarkRoast from "../../images/dark-roast.png";
+import { Link } from "react-router-dom";
 
 class Chemex extends Component {
 	constructor() {
@@ -37,7 +38,7 @@ class Chemex extends Component {
 										src={SmallCup}
 										alt="Small Cup"
 									/>
-									
+
 									<p id="textsml">Small</p>
 								</div>
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
@@ -64,22 +65,33 @@ class Chemex extends Component {
 							<h3 id="desiredText">Desired Strength:</h3>
 							<div className="row">
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-								<input type="radio" id="weak"  name="coffee" value="weak"/>
-								<label id="textwms" for="weak">Weak </label>
+									<input type="radio" id="weak" name="coffee" value="weak" />
+									<label id="textwms" for="weak">
+										Weak{" "}
+									</label>
 								</div>
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-								<input type="radio" id="med" name="coffee" value="med"/>
-									<label id="textwms" for="med">Medium </label>
+									<input type="radio" id="med" name="coffee" value="med" />
+									<label id="textwms" for="med">
+										Medium{" "}
+									</label>
 								</div>
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-								<input type="radio" id="strong" name="coffee" value="strong"/>
-								<label id="textwms" for="strong">Strong</label>
+									<input
+										type="radio"
+										id="strong"
+										name="coffee"
+										value="strong"
+									/>
+									<label id="textwms" for="strong">
+										Strong
+									</label>
 								</div>
 							</div>
 							<h3 id="desiredText">Desired Bean Roast:</h3>
 							<div className="row">
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-								<input
+									<input
 										id="roastInputOne"
 										type="image"
 										className="img-responsive"
@@ -89,7 +101,7 @@ class Chemex extends Component {
 									<p id="textlmd">Light</p>
 								</div>
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-								<input
+									<input
 										id="roastInputTwo"
 										type="image"
 										className="img-responsive"
@@ -99,7 +111,7 @@ class Chemex extends Component {
 									<p id="textlmd">Medium</p>
 								</div>
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-								<input
+									<input
 										id="roastInputThree"
 										type="image"
 										className="img-responsive"
@@ -110,6 +122,22 @@ class Chemex extends Component {
 								</div>
 							</div>
 						</div>
+					</div>
+
+					<div className="row">
+						<div className="col col-sm-4 col-md-4 col-lg-4"></div>
+						<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center" id="tracker">
+							<Link to="/brew">
+								<button
+									type="button"
+									id="brew-btn"
+									className="btn btn-primary"
+								>
+									Brew!
+								</button>
+							</Link>
+						</div>
+						<div className="col col-sm-4 col-md-4 col-lg-4"></div>
 					</div>
 				</div>
 			</>
