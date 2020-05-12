@@ -4,6 +4,9 @@ import "./Preferences.css";
 import SmallCup from "../../images/small-cup.png";
 import MedCup from "../../images/medium-cup.png";
 import LargeCup from "../../images/large-cup.png";
+import LightRoast from "../../images/light-roast.png";
+import MedRoast from "../../images/medium-roast.png";
+import DarkRoast from "../../images/dark-roast.png";
 
 class Chemex extends Component {
 	constructor() {
@@ -76,13 +79,34 @@ class Chemex extends Component {
 							<h3 id="desiredText">Desired Bean Roast:</h3>
 							<div className="row">
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-									Light
+								<input
+										id="roastInputOne"
+										type="image"
+										className="img-responsive"
+										src={LightRoast}
+										alt="Light Roast"
+									/>
+									<p id="textlmd">Light</p>
 								</div>
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-									Medium
+								<input
+										id="roastInputTwo"
+										type="image"
+										className="img-responsive"
+										src={MedRoast}
+										alt="Med Roast"
+									/>
+									<p id="textlmd">Medium</p>
 								</div>
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-									Dark
+								<input
+										id="roastInputThree"
+										type="image"
+										className="img-responsive"
+										src={DarkRoast}
+										alt="Dark Roast"
+									/>
+									<p id="textlmd">Dark</p>
 								</div>
 							</div>
 						</div>

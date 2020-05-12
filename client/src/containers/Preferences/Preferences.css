@@ -7,6 +7,7 @@
 div#card-body{
     border-color: black;
     background-color: rgb(250, 250, 250);
+    padding-bottom: 3%;
 }
 /* input for small cup */
 #inputOne {
@@ -42,7 +43,7 @@ div#card-body{
 #desiredTextFirst {
     text-align:center;
     margin-bottom: 5%;  
-    margin-top: 5%;
+    margin-top: 3%;
     color: #2a190f;
     font-size: 40px;
 }
@@ -67,4 +68,41 @@ div#card-body{
     margin-top: 5%;
     color: #2a190f;
     font-size: 20px;
+}
+/* light, med, & dark roast text */
+#textlmd {
+    position: absolute;
+    margin-top: 50%;
+    color: #2a190f;
+    font-size: 20px;
+}
+/* input for light cup */
+#roastInputOne {
+    border-radius: 50%;
+    height: 90%;
+    width: 60%;
+}
+/* input for med cup */
+#roastInputTwo {
+    border-radius: 50%;
+    height: 90%;
+    width: 60%;
+}
+/* input for dark cup */
+#roastInputThree {
+    border-radius: 50%;
+    height: 90%;
+    width: 60%;
+}
+/* hover for light cup */
+#roastInputOne:hover{
+    border: solid black;
+}
+/* hover for med cup */
+#roastInputTwo:hover{
+    border: solid black;
+}
+/* hover for dark cup */
+#roastInputThree:hover{
+    border: solid black;
 }
