@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Header from "../../components/Shared/Header/Header"
+import Header from "../../components/Shared/Header/Header";
+
 
 class Brew extends Component {
 	constructor() {
@@ -14,9 +15,10 @@ class Brew extends Component {
 	}
 	render() {
 		return (
-			<div>
-                 <Header name={this.state.name}/>
-			</div>
+			<>
+				<Header name={this.state.name} />
+				
+			</>
 		);
 	}
 }
