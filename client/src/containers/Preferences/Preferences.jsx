@@ -21,7 +21,24 @@ class Chemex extends Component {
 				<div className="container" id="cardCalculation">
 					<div className="card" id="card-body">
 						<div className="card-body">
-							This is some text within a card body.
+							<h3 id="desiredText">Desired Quantity:</h3>
+							<div className="row">
+							<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center" >Small</div>
+							<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">Medium</div>
+							<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">Large</div>
+							</div>
+							<h3 id="desiredText">Desired Strength:</h3>
+							<div className="row">
+							<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center" >Weak</div>
+							<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">Medium</div>
+							<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">Stong</div>
+							</div>
+							<h3 id="desiredText">Desired Bean Roast:</h3>
+							<div className="row">
+							<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center" >Light</div>
+							<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">Medium</div>
+							<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">Dark</div>
+							</div>
 						</div>
 					</div>
 				</div>
