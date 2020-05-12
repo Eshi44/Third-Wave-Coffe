@@ -61,13 +61,16 @@ class Chemex extends Component {
 							<h3 id="desiredText">Desired Strength:</h3>
 							<div className="row">
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-									Weak
+								<input type="radio" id="weak"  name="coffee" value="weak"/>
+								<label id="textwms" for="weak">Weak </label>
 								</div>
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-									Medium
+								<input type="radio" id="med" name="coffee" value="med"/>
+									<label id="textwms" for="med">Medium </label>
 								</div>
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-									Stong
+								<input type="radio" id="strong" name="coffee" value="strong"/>
+								<label id="textwms" for="strong">Strong</label>
 								</div>
 							</div>
 							<h3 id="desiredText">Desired Bean Roast:</h3>

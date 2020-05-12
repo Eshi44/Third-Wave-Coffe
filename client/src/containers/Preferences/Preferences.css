@@ -6,6 +6,7 @@
 /* card border color */
 div#card-body{
     border-color: black;
+    background-color: rgb(250, 250, 250);
 }
 /* input for small cup */
 #inputOne {
@@ -53,10 +54,17 @@ div#card-body{
     color: #2a190f;
     font-size: 40px;
 }
-/* small/weak/light, med, & large/strong/dark text */
+/* small, med, & large quantity text */
 #textsml {
     position: absolute;
     margin-top: 50%;
+    color: #2a190f;
+    font-size: 20px;
+}
+/* weak, med, & strong strength text */
+#textwms {
+    position: absolute;
+    margin-top: 5%;
     color: #2a190f;
     font-size: 20px;
 }
