@@ -7,30 +7,37 @@
 div#card-body{
     border-color: black;
 }
+/* input for small cup */
 #inputOne {
     border-radius: 50%;
     height: 90%;
     width: 60%;
 }
+/* input for med cup */
 #inputTwo {
     border-radius: 50%;
     height: 90%;
     width: 60%;
 }
+/* input for large cup */
 #inputThree {
     border-radius: 50%;
     height: 90%;
     width: 60%;
 }
+/* hover for small cup */
 #inputOne:hover{
     border: solid black;
 }
+/* hover for med cup */
 #inputTwo:hover{
     border: solid black;
 }
+/* hover for large cup */
 #inputThree:hover{
     border: solid black;
 }
+/* desired quantity text */
 #desiredTextFirst {
     text-align:center;
     margin-bottom: 5%;  
@@ -38,6 +45,7 @@ div#card-body{
     color: #2a190f;
     font-size: 40px;
 }
+/* desired strength and bean roast text */
 #desiredText{
     text-align:center;
     margin-bottom: 5%;
@@ -45,6 +53,7 @@ div#card-body{
     color: #2a190f;
     font-size: 40px;
 }
+/* small/weak/light, med, & large/strong/dark text */
 #textsml {
     position: absolute;
     margin-top: 50%;
