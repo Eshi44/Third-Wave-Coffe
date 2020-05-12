@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import NavBar from "../components/Shared/NavBar/NavBar";
 import axios from "axios";
-import Input from "../components/Shared/Input";
+import Form from "../components/Shared/Form/Form";
+import "../components/Shared/Form/Form.css";
 
 class SignIn extends Component {
 	state = {
@@ -40,61 +41,10 @@ class SignIn extends Component {
 	};
 
 	render() {
-		const bckcolor = {
-			backgroundColor: "#fff0d9",
-			height: 500,
-		};
 		return (
 			<>
 				<NavBar />
-				<div className="container-fluid" style={bckcolor}>
-					<div className="row">
-						<div className="col-3"></div>
-						<div className="col-6">
-							<h1>Sign-In</h1>
-						</div>
-
-						<div className="col-3"></div>
-					</div>
-
-					{this.state.error && (
-						<div className="row justify-content-center">
-							<div className="alert alert-danger" role="alert">
-								{this.state.error}
-							</div>
-						</div>
-					)}
-				</div>
-				<div className="row">
-					<div className="col-4"></div>
-					<div className="col-4">
-						<form onSubmit={this.handleSubmit}>
-							<h2>Login</h2>
-							<Input
-								id="username"
-								type="username"
-								name="username"
-								label="Username"
-								value={this.state.ussername}
-								handleChange={this.handleInputChange}
-							/>
-
-							<Input
-								id="password"
-								type="password"
-								name="password"
-								label="Password"
-								value={this.state.password}
-								handleChange={this.handleInputChange}
-							/>
-
-							<button type="submit" id="login" className="btn btn-primary">
-								Login
-							</button>
-						</form>
-					</div>
-					<div className="col-4"></div>
-				</div>
+				<Form  handleSubmit={this.handleSubmit} error={this.state.error}/>
 			</>
 		);
 	}
