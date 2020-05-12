@@ -1,11 +1,14 @@
+/* container */
 #errorContainer {
 	margin-top: 5%;
 }
+/* error message */
 #error {
 	font-size: 80px;
 	color: #2a190f;
 	font-weight: bold;
 }
+/* cup image */
 #errorCup {
 	height: 50%;
 	position: relative;
@@ -13,6 +16,7 @@
     left: 0;
     z-index: -1;
 }
+/* steam image */
 #steam {
 	height: 15%;
 	position: absolute;
