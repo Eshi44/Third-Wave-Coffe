@@ -9,6 +9,11 @@ import "./Dashboard.css";
 import { Link } from "react-router-dom";
 
 class Dashboard extends Component {
+
+//get axios call to retrieve username and display in navbar
+//need get route in authcontroller
+//find by id in url and get username
+
 	render() {
 		return (
 			<>

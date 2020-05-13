@@ -40,7 +40,7 @@ class SignIn extends Component {
 				if (response.data.success) {
 				  const decoded = await jwt.verify(
 					response.data.data,
-					process.env.REACT_APP_SECRET
+					"secret"
 				  );
 				  console.log(decoded);
 				  await sessionStorage.setItem("jwt", response.data.data);
