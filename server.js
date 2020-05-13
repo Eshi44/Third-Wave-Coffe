@@ -1,8 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
-const UserController = require("./controllers/userController");
 const AuthController = require("./controllers/authController");
+const PostRoute = require("./controllers/posts");
 const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3001;
@@ -19,66 +19,14 @@ app.get("/api/config", (req, res) => {
   });
 });
 
-//dummy data
-// const users = [
-//   {
-//     _id: "1",
-//     username:"Dale Cooper",
-//     password: "password"
-//   },
-//   {
-//     _id: "2",
-//     username:"GodFather",
-//     password: "password"
-//   },
-//   {
-//     _id: "1",
-//     username:"Napolean",
-//     password: "password"
-//   }
-// ]
 
-//post route for user authentication
-//if user exists in my db
-// app.post("/api/users", (req,res) => {
- 
-//   const {username, password} = req.body;
-  // db.User.findOne({username:email})
-//   const foundUserArray=users.filter(user => user.username === username);
-//   console.log(foundUserArray);
-//   if(foundUserArray.length > 0) {
-//     const userToAuth = foundUserArray[0];
-//     if(userToAuth.password ===password) {
-//       res.json({
-//         success: true,
-//         message: "We found you!",
-//         // convert data to JWT for future authentication
-//         data: userToAuth
-//       });
-//       } else{
-//         res.status(403);
-//         res.json({
-//   success: false,
-//    message: "Invalid username or password",
-//    data:null,
-//         });
-//     }
-//     res.json(foundUserArray[0]);
-//   }else {
-//     res.status(403);
-//     res.json({
-//       success: false,
-//       message: "Invalid username or password",
-//       data:null,
-//     });
-//   }
-// });
-
-app.use("/api/user", UserController);
-app.use("/api/auth", AuthController);
+//routes
+app.use("/api/user", AuthController);
+app.use("/api/posts", PostRoute);
 
 // mongoose connections
- mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coffeedb", { useNewUrlParser: true });
+ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coffeedb", { useNewUrlParser: true },  
+ () => console.log("connected to db"));
 
 app.use(express.static("client/build"));
 

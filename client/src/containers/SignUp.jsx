@@ -29,7 +29,7 @@ class SignUp extends Component {
 		event.preventDefault();
 
 		axios
-			.post("/api/user", {
+			.post("/api/auth", {
 				username,
 				password,
 			})
@@ -38,7 +38,7 @@ class SignUp extends Component {
 				if (response.data.success) {
 					const decoded = await jwt.verify(
 					  response.data.data,
-					  "secret",);
+					  process.env.TOKEN_SECRET,);
 					console.log(decoded);
 					await sessionStorage.setItem("jwt", response.data.data);
 					await this.props.checkForToken();

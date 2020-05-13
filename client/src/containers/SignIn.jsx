@@ -26,21 +26,21 @@ class SignIn extends Component {
 
 		console.log(username);
 		console.log(password);
+		
 
 		event.preventDefault();
 
 		axios
-			.post("/api/auth", {
+			.post("/api/user", {
 				username,
-				password,
-				
+				password,	
 			})
 			.then(async (response) => {
-				console.log("Here is the response data");
+				console.log("Here is the response data"+ response);
 				if (response.data.success) {
 				  const decoded = await jwt.verify(
 					response.data.data,
-					"secret"
+					process.env.TOKEN_SECRET
 				  );
 				  console.log(decoded);
 				  await sessionStorage.setItem("jwt", response.data.data);
