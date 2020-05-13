@@ -1,8 +1,11 @@
+
 import React, { Component } from "react";
 import NavBar from "../components/Shared/NavBar/NavBar";
 import axios from "axios";
 import Form from "../components/Shared/Form/Form";
 import "../components/Shared/Form/Form.css";
+import jwt from "jsonwebtoken";
+
 
 
 class SignUp extends Component {
@@ -22,30 +25,42 @@ class SignUp extends Component {
 		});
 	};
 
-	handleSubmit = (event) => {
+	handleSubmit = (event,username,password) => {
 		event.preventDefault();
 
 		axios
-			.post("/api/users", {
-				username: this.state.username,
-				password: this.state.password,
+			.post("/api/user", {
+				username,
+				password,
 			})
-			.then((response) => {
-				console.log(response);
-				this.props.history.push(`/dashboard/${response.data.data._id}`);
-			})
-			.catch((err) => {
-				console.log(err);
-				console.log(err.response.data.message);
-				this.setState({ error: err.response.data.message });
-			});
-	};
+			.then(async (response) => {
+				console.log(response.data.data);
+				if (response.data.success) {
+					const decoded = await jwt.verify(
+					  response.data.data,
+					  "secret",);
+					console.log(decoded);
+					await sessionStorage.setItem("jwt", response.data.data);
+					await this.props.checkForToken();
+					await this.props.history.push(`/dashboard/${decoded.id}`);
+				  }
+				})
+				.catch((err) => {
+				  console.log(err);
+				  console.log(err.response.data.message);
+				  this.setState({ error: err.response.data.message });
+				});
+			};
 
 	render() {
 
 		return (
 			<>
-				<NavBar />
+				<NavBar 
+				    //    isLoggedIn={isLoggedIn}
+					//    logOutUser={logOutUser}
+					//    userObject={userObject}
+					   />
 				<Form handleSubmit={this.handleSubmit} error={this.state.error} />
 			</>
 		);

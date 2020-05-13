@@ -6,7 +6,11 @@ class Main extends Component {
 	render() {
 		return (
 			<>
-				<NavBar />
+				<NavBar 
+				    //    isLoggedIn={isLoggedIn}
+					//    logOutUser={logOutUser}
+					//    userObject={userObject}
+				/>
 				<div id="homepage-cover">
 					<div className="container">
 						<div className="row">

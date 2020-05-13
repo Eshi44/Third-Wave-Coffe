@@ -3,7 +3,7 @@ import "./NavBar.css";
 import Logo from "../../../images/coffee-mug-with-steam.png";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (props) => {
 	return (
 		<nav>
 			<div className="nav-wrapper">
@@ -11,6 +11,12 @@ const NavBar = () => {
 					<img className="img-responsive" src={Logo} alt="Coffee Cup Logo" />
 				</Link>
 			</div>
+			{props.isLoggedIn ? (
+            <>
+			<button onClick={props.logOutUser}> <a href="/">Sign Out</a></button>
+			</>
+          ) : (
+            <>
 			<Link to="/signin">
 				<button type="button" id="login-btn" className="btn btn-primary">
 					Login
@@ -21,6 +27,8 @@ const NavBar = () => {
 					Signup
 				</button>
 			</Link>
+			</>
+          )}
 		</nav>
 	);
 };

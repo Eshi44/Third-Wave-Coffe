@@ -8,7 +8,7 @@ const DrinksSchema = new Schema({
 	strength: { type: String },
 	roast: { type: String },
 	rating: { type: Number },
-	favorite: { type: Boolean },
+	favorite: { type: Boolean, default: false },
 	notes: { type: String },
 	date: { type: Date, default: Date.now },
 });

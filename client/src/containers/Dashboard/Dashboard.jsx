@@ -12,7 +12,11 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<>
-				<NavBar />
+				<NavBar 
+				    //    isLoggedIn={isLoggedIn}
+					//    logOutUser={logOutUser}
+					//    userObject={userObject}
+				/>
 				<div className="container-fluid">
 					<div className="row">
 						<div className="col col-sm-4 col-md-4 col-lg-4" id="tracker">
