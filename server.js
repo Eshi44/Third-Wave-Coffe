@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 const UserController = require("./controllers/userController");
@@ -77,7 +78,7 @@ app.get("/api/config", (req, res) => {
 app.use("/api/user", UserController);
 app.use("/api/auth", AuthController);
 
-// mongoose connection
+// mongoose connections
  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coffeedb", { useNewUrlParser: true });
 
 app.use(express.static("client/build"));
@@ -85,7 +86,7 @@ app.use(express.static("client/build"));
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "/client/build/index.html"));
 });
-
+// port
 app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`);
 });

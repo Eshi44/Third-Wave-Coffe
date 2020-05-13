@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../models");
 const jwt = require("jsonwebtoken");
 
-//sign in
+//sign-in
 
 router.post("/", (req, res) => {
 	console.log("Authentication POST route");
