@@ -10,7 +10,6 @@ const checkForJWTToken = () => {
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
     return !!decoded;
   } catch (err) {
-    console.log( process.env.TOKEN_SECRET);
     console.log(err);
     return false;
   }
