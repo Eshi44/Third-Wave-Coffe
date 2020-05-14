@@ -36,8 +36,9 @@ class SignIn extends Component {
 			.then(async (response) => {
 				console.log("Here is the response data");
 				console.log(response);
-				console.log("this is the token"+ response.data);
-	
+				console.log("this is the token" + "" + response.data);
+				//store token in local storage
+				localStorage.setItem("jwtToken", response.data);
 				await this.props.history.push(`/dashboard/${username}`);
 				
 			  })
