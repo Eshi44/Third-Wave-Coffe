@@ -10,19 +10,18 @@ const NavBar = (props) => {
 				<Link to="/" className="brand-logo">
 					<img className="img-responsive" src={Logo} alt="Coffee Cup Logo" />
 				</Link>
-		
-			
-			<Link to="/signin">
-				<button type="button" id="login-btn" className="btn btn-primary">
-					Login
-				</button>
-			</Link>
-			<Link to="/signup">
-				<button type="button" id="signup-btn" className="btn btn-primary">
-					Signup
-				</button>
-			</Link>
 			</div>
+			<Link to="/">
+				<button
+					type="button"
+					id="logout-btn"
+					className="btn btn-primary"
+					onClick={props.logOutUser}
+				>
+					{" "}
+					Sign Out
+				</button>
+			</Link>
 		</nav>
 	);
 };

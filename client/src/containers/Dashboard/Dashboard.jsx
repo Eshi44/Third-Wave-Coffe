@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NavBar from "../../components/Shared/NavBar/NavBar";
+import NavBar from "../../components/Shared/NavBar/NavBarDash";
 import Chemex from "../../images/chemex.png";
 import Aeropress from "../../images/aeropress.png";
 import Frenchpress from "../../images/frenchpress.png";
