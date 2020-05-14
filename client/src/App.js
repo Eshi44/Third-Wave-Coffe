@@ -22,7 +22,7 @@ function App(props) {
 	  }, []);
 	
 	  const checkForToken = async () => {
-		const tokenFromStorage = await localStorage.getItem("jwtToken");
+		const tokenFromStorage = await sessionStorage.getItem("jwtToken");
 		console.log("this is token from storage "+ tokenFromStorage);
 		if (tokenFromStorage) {
 		  setIsLoggedIn(true);
@@ -31,14 +31,14 @@ function App(props) {
 			  tokenFromStorage,
 			  process.env.TOKEN_SECRET
 			);
-			// if (decoded && decoded.username && decoded.id) {
-			//   setUserObject(decoded);
-			//   setIsLoggedIn(true);
-			// }
+			if (decoded && decoded.username && decoded.id) {
+			  setUserObject(decoded);
+			  setIsLoggedIn(true);
+			}
 		  } catch (e) {
 			setUserObject({});
 			setIsLoggedIn(false);
-			localStorage.setItem("jwtToken", "");
+			sessionStorage.setItem("jwtToken", "");
 			console.error(e);
 		  }
 		}

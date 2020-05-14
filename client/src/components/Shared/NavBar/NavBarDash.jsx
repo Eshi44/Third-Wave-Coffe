@@ -4,6 +4,13 @@ import Logo from "../../../images/coffee-mug-with-steam.png";
 import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
+
+	function clearStorage() {
+		localStorage.clear();
+	}
+
+
+
 	return (
 		<nav>
 			<div className="nav-wrapper">
@@ -16,7 +23,7 @@ const NavBar = (props) => {
 					type="button"
 					id="logout-btn"
 					className="btn btn-primary"
-					onClick={props.logOutUser}
+					onClick={clearStorage}
 				>
 					{" "}
 					Sign Out

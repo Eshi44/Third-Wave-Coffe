@@ -7,12 +7,39 @@ import History from "../../images/history.png";
 import Tracker from "../../images/tracker.png";
 import "./Dashboard.css";
 import { Link } from "react-router-dom";
+// import axios from "axios";
 
 class Dashboard extends Component {
 
 //get axios call to retrieve username and display in navbar
 //need get route in authcontroller
 //find by id in url and get username
+
+// state = {
+// 	//controlled input
+// 	username: "",
+// 	password: "",
+// 	//empty string is 'falsey'
+// 	error: "",
+// };
+grabToken = (response) => {
+	localStorage.getItem("jwtToken", response.data);
+	console.log("here I am"+response.data);
+};
+// componentDidMount(username, password) {
+// axios.get("/api/posts", {
+	
+// 	username,
+// 	password,	
+// })
+// .then(async (response) => {
+// 	console.log(response);
+// 	localStorage.getItem("jwtToken", response.data);
+// })
+// .catch((err) => {
+//   console.log(err);
+// });
+// };
 
 	render() {
 		return (
