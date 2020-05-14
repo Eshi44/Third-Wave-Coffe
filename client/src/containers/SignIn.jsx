@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "../components/Shared/NavBar/NavBar";
 import axios from "axios";
-import Form from "../components/Shared/Form/Form";
+import Form from "../components/Shared/Form/FormSignIn";
 import "../components/Shared/Form/Form.css";
 import jwt from "jsonwebtoken";
 
