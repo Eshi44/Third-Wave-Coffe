@@ -27,7 +27,11 @@ app.use("/api/posts", PostRoute);
 // mongoose connections
  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coffeedb", {useNewUrlParser: true, useUnifiedTopology: true})
 
-app.use(express.static("client/build"));
+ if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+} else {
+  app.use(express.static("public"));
+}
 
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "/client/build/index.html"));

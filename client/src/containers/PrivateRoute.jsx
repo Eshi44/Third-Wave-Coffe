@@ -2,12 +2,15 @@ import React from "react";
 import jwt from "jsonwebtoken";
 import { Route, Redirect } from "react-router-dom";
 
+
 const checkForJWTToken = () => {
   const token = localStorage.getItem("jwtToken");
+  console.log("private route" + token);
   try {
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
     return !!decoded;
   } catch (err) {
+    console.log( process.env.TOKEN_SECRET);
     console.log(err);
     return false;
   }

@@ -55,7 +55,10 @@ router.post("/login", async (req, res) => {
 	if (!validPass) return res.status(400).send("Invalid password");
 
 	//CREATE AND ASSIGN JSON WEB TOKEN
-	const token = jwt.sign({ _id: userExists._id }, process.env.TOKEN_SECRET);
+	const token = jwt.sign(
+		{ _id: userExists._id, exp: Math.floor(Date.now() / 1000) + 60 * 60 },
+		process.env.TOKEN_SECRET
+	);
 	res.header("auth-token", token).send(token);
 
 	//IF SUCCESSFUL

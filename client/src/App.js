@@ -11,6 +11,7 @@ import Brew from "./containers/Brew/Brew";
 import History from "./containers/History/History";
 import Tracker from "./containers/Tracker/Tracker";
 import jwt from "jsonwebtoken";
+import PrivateRoute from "./containers/PrivateRoute";
 
 function App(props) {
 
@@ -22,23 +23,26 @@ function App(props) {
 	  }, []);
 	
 	  const checkForToken = async () => {
-		const tokenFromStorage = await sessionStorage.getItem("jwtToken");
+		const tokenFromStorage = await localStorage.getItem("jwtToken");
 		console.log("this is token from storage "+ tokenFromStorage);
 		if (tokenFromStorage) {
 		  setIsLoggedIn(true);
+		  
 		  try {
 			const decoded = await jwt.verify(
+				
 			  tokenFromStorage,
 			  process.env.TOKEN_SECRET
 			);
 			if (decoded && decoded.username && decoded.id) {
+				console.log("DECODED"+decoded);
 			  setUserObject(decoded);
 			  setIsLoggedIn(true);
 			}
 		  } catch (e) {
 			setUserObject({});
 			setIsLoggedIn(false);
-			sessionStorage.setItem("jwtToken", "");
+			localStorage.setItem("jwtToken", "");
 			console.error(e);
 		  }
 		}
@@ -69,9 +73,8 @@ function App(props) {
               <SignUp {...props} checkForToken={checkForToken} />
             )}
           />
-					<Route
-						path="/dashboard/:id"
-						component={(props) => <Dashboard {...props} />}
+					<PrivateRoute  path="/dashboard/:id"
+						component={Dashboard} 
 					/>
 					<Route path="/preferences"component={(props) => <Preferences {...props} />}
 					/>
