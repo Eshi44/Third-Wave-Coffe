@@ -24,42 +24,41 @@ class SignUp extends Component {
 			error: "",
 		});
 	};
+	componentDidMount() {
+		console.log(this.state.username);
+	}
+
 
 	handleSubmit = (event,username,password) => {
 		event.preventDefault();
 
 		axios
-			.post("/api/auth", {
+			.post("/api/user/register", {
 				username,
 				password,
 			})
 			.then(async (response) => {
-				console.log(response.data.data);
-				if (response.data.success) {
-					const decoded = await jwt.verify(
-					  response.data.data,
-					  process.env.TOKEN_SECRET,);
-					console.log(decoded);
-					await sessionStorage.setItem("jwt", response.data.data);
-					await this.props.checkForToken();
-					await this.props.history.push(`/dashboard/${decoded.id}`);
-				  }
+				console.log("Here is the response data");
+				console.log(response);
+				console.log("this is the token"+ response.data);
+	
+				await this.props.history.push(`/dashboard/${username}`);
+				  
 				})
 				.catch((err) => {
 				  console.log(err);
 				  console.log(err.response.data.message);
-				  this.setState({ error: err.response.data.message });
+				  this.setState({ error: "User already exists" });
 				});
 			};
+
+			
 
 	render() {
 
 		return (
 			<>
 				<NavBar 
-				    //    isLoggedIn={isLoggedIn}
-					//    logOutUser={logOutUser}
-					//    userObject={userObject}
 					   />
 				<Form handleSubmit={this.handleSubmit} error={this.state.error} />
 			</>

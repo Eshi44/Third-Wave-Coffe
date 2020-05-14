@@ -9,6 +9,7 @@ const verify = require("./verifyTokenController");
 
 router.get("/",verify, (req, res) => {
     res.send(req.userExists);
+    // res.send(req.userExists._id);
     // User.findById({_id: req.userExists})
 });
 

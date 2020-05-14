@@ -18,9 +18,7 @@ class Dashboard extends Component {
 		return (
 			<>
 				<NavBar 
-				    //    isLoggedIn={isLoggedIn}
-					//    logOutUser={logOutUser}
-					//    userObject={userObject}
+
 				/>
 				<div className="container-fluid">
 					<div className="row">

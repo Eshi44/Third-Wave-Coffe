@@ -14,6 +14,7 @@ class SignIn extends Component {
 		error: "",
 	};
 
+
 	handleInputChange = (event) => {
 		const { name, value } = event.target;
 		this.setState({
@@ -23,30 +24,22 @@ class SignIn extends Component {
 	};
 
 	handleSubmit = (event, username, password) => {
-
 		console.log(username);
 		console.log(password);
-		
-
 		event.preventDefault();
 
 		axios
-			.post("/api/user", {
+			.post("/api/user/login", {
 				username,
 				password,	
 			})
 			.then(async (response) => {
-				console.log("Here is the response data"+ response);
-				if (response.data.success) {
-				  const decoded = await jwt.verify(
-					response.data.data,
-					process.env.TOKEN_SECRET
-				  );
-				  console.log(decoded);
-				  await sessionStorage.setItem("jwt", response.data.data);
-				  await this.props.checkForToken();
-				  await this.props.history.push(`/dashboard/${decoded.id}`);
-				}
+				console.log("Here is the response data");
+				console.log(response);
+				console.log("this is the token"+ response.data);
+	
+				await this.props.history.push(`/dashboard/${username}`);
+				
 			  })
 			  .catch((err) => {
 				console.log(err);
@@ -59,9 +52,7 @@ class SignIn extends Component {
 		return (
 			<>
 				<NavBar 
-				    //    isLoggedIn={isLoggedIn}
-					//    logOutUser={logOutUser}
-					//    userObject={userObject}
+				  
 					/>
 				<Form  handleSubmit={this.handleSubmit} error={this.state.error}/>
 			</>
