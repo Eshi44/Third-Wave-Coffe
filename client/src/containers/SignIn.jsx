@@ -44,7 +44,7 @@ class SignIn extends Component {
 			  .catch((err) => {
 				console.log(err);
 				console.log(err.response.data.message);
-				this.setState({ error: err.response.data.message });
+				this.setState({ error: "Invalid username or password" });
 			  });
 		  };
 
