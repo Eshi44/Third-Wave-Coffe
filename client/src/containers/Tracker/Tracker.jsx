@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Header from "../../components/Shared/Header/Header"
+import Header from "../../components/Shared/Header/Header";
+import "./Tracker.css";
 
 class Tracker extends Component {
 	constructor() {

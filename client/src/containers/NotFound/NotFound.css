@@ -23,3 +23,7 @@
 	top: 90px;
     left: 140px;   
 }
+/* steam animation */
+#steam  {
+    --animate-duration: 8s;
+  }

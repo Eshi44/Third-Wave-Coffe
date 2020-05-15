@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavBar from "../../components/Shared/NavBar/NavBar";
 import "./Main.css";
 import Chemex from "../../images/chemex-animated.png";
+import Steam from "../../images/steam.png";
 class Main extends Component {
 	render() {
 		return (
@@ -38,6 +39,12 @@ class Main extends Component {
 							<div className="col col-sm-1 col-md-2 col-lg-2"></div>
 							<div className="col col-sm-3 col-md-6 col-lg-7"></div>
 							<div className="col col-sm-4 col-md-4 col-lg-3">
+							<img
+								className="img-responsive animate__animated animate__fadeOutUp animate__faster animate__infinite"
+								id="steamChemex"
+								src={Steam}
+								alt="Steam"
+							/>
 								<img className="img-responsive" src={Chemex} alt="Chemex" />
 							</div>
 						</div>

@@ -31,7 +31,7 @@ class NotFound extends Component {
 						<div className="col col-sm-4 col-md-2 col-lg-2"></div>
 						<div className="col col-sm-4 col-md-6 col-lg-6">
 							<img
-								className="img-responsive"
+								className="img-responsive animate__animated animate__fadeOutUp animate__faster animate__infinite"
 								id="steam"
 								src={Steam}
 								alt="Steam"
