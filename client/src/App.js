@@ -76,7 +76,7 @@ function App(props) {
 					{/* <PrivateRoute  path="/dashboard/:id"
 						component={Dashboard} 
 					/> */}
-					<Route path="/dashboard/:id"component={(props) => <Dashboard {...props} />} 
+					<Route path="/dashboard/"component={(props) => <Dashboard {...props} />} 
 					/>
 					<Route path="/preferences"component={(props) => <Preferences {...props} />}
 					/>

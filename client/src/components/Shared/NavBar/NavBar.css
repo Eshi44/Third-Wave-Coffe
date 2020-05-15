@@ -68,3 +68,12 @@ nav img:hover {
   background-color: #a5a5a5;
   border-color: #a5a5a5;
 }
+/* wecome username */
+#welcome{
+  color: #2a190f;
+  font-weight: bold;
+  font-size: 32px;
+  position: absolute;
+  top: 30px;
+  right: 640px;
+}

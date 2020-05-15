@@ -14,7 +14,7 @@ const NavBar = (props) => {
 	return (
 		<nav>
 			<div className="nav-wrapper">
-				<Link to="/" className="brand-logo">
+				<Link to="/dashboard/" className="brand-logo">
 					<img className="img-responsive" src={Logo} alt="Coffee Cup Logo" />
 				</Link>
 			</div>
@@ -29,6 +29,9 @@ const NavBar = (props) => {
 					Sign Out
 				</button>
 			</Link>
+
+		<h2 id="welcome">Welcome, {window.localStorage.username} </h2>
+
 		</nav>
 	);
 };

@@ -11,10 +11,27 @@ import { Link } from "react-router-dom";
 
 class Dashboard extends Component {
 
+	// constructor() {
+	// 	super();
+	// 	this.state = {
+	// 		username: "",
+	// 	};
+	// }
 //get axios call to retrieve username and display in navbar
 //need get route in authcontroller
 //find by id in url and get username
+componentDidMount(username) {
+	localStorage.getItem("username", username);
+	console.log("username");
+	console.log(window.localStorage.username);
+	var url = window.localStorage.username;
+	
+	if (window.location.href  === "http://localhost:3000/dashboard/") {
+		
+	 window.history.pushState("http://localhost:3000/dashboard/","url",`/${url}`); }
 
+
+}
 // state = {
 // 	//controlled input
 // 	username: "",
@@ -22,10 +39,10 @@ class Dashboard extends Component {
 // 	//empty string is 'falsey'
 // 	error: "",
 // };
-grabToken = (response) => {
-	localStorage.getItem("jwtToken", response.data);
-	console.log("here I am"+response.data);
-};
+// grabToken = (response) => {
+// 	localStorage.getItem("jwtToken", response.data);
+// 	console.log("here I am"+response.data);
+// };
 // componentDidMount(username, password) {
 // axios.get("/api/posts", {
 	

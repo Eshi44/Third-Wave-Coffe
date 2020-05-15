@@ -6,7 +6,7 @@ const Header = (props) => {
 	return (
 		<>
 			<header id="header">
-				<Link to="/dashboard/:id">
+				<Link to="/dashboard/">
 					<button type="button" id="dashboard" className="btn btn-primary">
 						Dashboard
 					</button>
