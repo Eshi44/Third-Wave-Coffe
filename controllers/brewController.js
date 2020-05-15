@@ -11,7 +11,7 @@ const User = require("../models/User");
 //     "roast": "light", 
 //     "rating": 3, 
 //     "favorite": true, 
-//     "notes": "Black!"
+//     "notes": "Black Coffee!"
 // }
 
 //POST TO CREATE DRINK PREFERENCES FOR EACH USER

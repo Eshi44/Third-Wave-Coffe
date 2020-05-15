@@ -1,12 +1,8 @@
-
 import React, { Component } from "react";
-import NavBar from "../components/Shared/NavBar/NavBar";
+import NavBar from "../../components/Shared/NavBar/NavBar";
 import axios from "axios";
-import Form from "../components/Shared/Form/FormSignUp";
-import "../components/Shared/Form/Form.css";
-// import jwt from "jsonwebtoken";
-
-
+import Form from "../../components/Shared/Form/FormSignUp";
+import "../../components/Shared/Form/Form.css";
 
 class SignUp extends Component {
 	state = {
@@ -28,8 +24,7 @@ class SignUp extends Component {
 		console.log(this.state.username);
 	}
 
-
-	handleSubmit = (event,username,password) => {
+	handleSubmit = (event, username, password) => {
 		event.preventDefault();
 
 		axios
@@ -40,26 +35,21 @@ class SignUp extends Component {
 			.then(async (response) => {
 				console.log("Here is the response data");
 				console.log(response);
-				console.log("this is the token"+ response.data);
-	
-				await this.props.history.push(`/dashboard/${username}`);
-				  
-				})
-				.catch((err) => {
-				  console.log(err);
-				  console.log(err.response.data.message);
-				  this.setState({ error: "User already exists" });
-				});
-			};
+				console.log("this is the token" + response.data);
 
-			
+				await this.props.history.push(`/dashboard/${username}`);
+			})
+			.catch((err) => {
+				console.log(err);
+				console.log(err.response.data.message);
+				this.setState({ error: "User already exists" });
+			});
+	};
 
 	render() {
-
 		return (
 			<>
-				<NavBar 
-					   />
+				<NavBar />
 				<Form handleSubmit={this.handleSubmit} error={this.state.error} />
 			</>
 		);

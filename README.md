@@ -1,1 +1,3 @@
-# Third-Wave-Coffee
+# Third Wave Coffee
+
+:coffee: 

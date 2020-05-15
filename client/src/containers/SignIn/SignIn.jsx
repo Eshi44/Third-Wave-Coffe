@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import NavBar from "../components/Shared/NavBar/NavBar";
+import NavBar from "../../components/Shared/NavBar/NavBar";
 import axios from "axios";
-import Form from "../components/Shared/Form/FormSignIn";
-import "../components/Shared/Form/Form.css";
-// import jwt from "jsonwebtoken";
+import Form from "../../components/Shared/Form/FormSignIn";
+import "../../components/Shared/Form/Form.css";
 
 class SignIn extends Component {
 	state = {
@@ -13,7 +12,6 @@ class SignIn extends Component {
 		//empty string is 'falsey'
 		error: "",
 	};
-
 
 	handleInputChange = (event) => {
 		const { name, value } = event.target;
@@ -31,7 +29,7 @@ class SignIn extends Component {
 		axios
 			.post("/api/user/login", {
 				username,
-				password,	
+				password,
 			})
 			.then(async (response) => {
 				console.log("Here is the response data");
@@ -42,22 +40,19 @@ class SignIn extends Component {
 				localStorage.setItem("jwtToken", response.data);
 				localStorage.setItem("username", username);
 				await this.props.history.push(`/dashboard/`);
-				
-			  })
-			  .catch((err) => {
+			})
+			.catch((err) => {
 				console.log(err);
 				console.log(err.response.data.message);
 				this.setState({ error: "Invalid username or password" });
-			  });
-		  };
+			});
+	};
 
 	render() {
 		return (
 			<>
-				<NavBar 
-				  
-					/>
-				<Form  handleSubmit={this.handleSubmit} error={this.state.error}/>
+				<NavBar />
+				<Form handleSubmit={this.handleSubmit} error={this.state.error} />
 			</>
 		);
 	}
