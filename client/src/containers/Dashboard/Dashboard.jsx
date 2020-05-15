@@ -30,6 +30,10 @@ componentDidMount(username) {
 		
 	 window.history.pushState("http://localhost:3000/dashboard/","url",`/${url}`); }
 
+	 else if (window.location.href  === "https://third-wave-coffee-app.herokuapp.com/dashboard/") {
+		
+		window.history.pushState("https://third-wave-coffee-app.herokuapp.com/dashboard/","url",`/${url}`); }
+
 
 }
 // state = {
