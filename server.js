@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const AuthController = require("./controllers/authController");
+const BrewController = require("./controllers/brewController");
+const HistoryController = require("./controllers/historyController");
 const PostRoute = require("./controllers/posts");
 const mongoose = require("mongoose");
 
@@ -22,7 +24,11 @@ app.get("/api/config", (req, res) => {
 
 //routes
 app.use("/api/user", AuthController);
+app.use("/api/brew", BrewController);
+app.use("/api/history", HistoryController);
 app.use("/api/posts", PostRoute);
+
+
 
 // mongoose connections
  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coffeedb", {useNewUrlParser: true, useUnifiedTopology: true})
