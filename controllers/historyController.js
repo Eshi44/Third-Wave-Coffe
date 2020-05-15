@@ -3,7 +3,7 @@ const router = express.Router();
 const Drink = require("../models/Drink");
 const User = require("../models/User");
 
-// GET ALL DRINKS FROM ONE USER..............................
+// GET ALL DRINKS FROM ONE USER
 router.get("/all", (req, res) => {
     Drink.find({})
     .then(({ }) => User.findOne({"username":"AgentDaleCooper"}))
@@ -14,9 +14,9 @@ router.get("/all", (req, res) => {
       res.json(err);
     });
 });
-//GET ONE DRINK FROM ONE USER
+//GET ONE DRINK FROM ONE USER..............................
 router.get("/one/:id", (req, res) => {
-  Drink.findOne({id: req.params.id}) 
+  Drink.findOne({_id: req.params.id}) 
   .then(db => {
     res.json(db);
   })
