@@ -3,9 +3,10 @@ const router = express.Router();
 const Drink = require("../models/Drink");
 const User = require("../models/User");
 
-// GET ALL DRINKS FROM ONE USER
-router.get("/", (req, res) => {
+// GET ALL DRINKS FROM ONE USER..............................
+router.get("/all", (req, res) => {
     Drink.find({})
+    .then(({ }) => User.findOne({"username":"AgentDaleCooper"}))
     .then(db => {
       res.json(db);
     })
@@ -13,51 +14,51 @@ router.get("/", (req, res) => {
       res.json(err);
     });
 });
-//GET for one drink
-
-
-// UPDATE NOTES FOR ONE DRINK
+//GET ONE DRINK FROM ONE USER
+router.get("/one/:id", (req, res) => {
+  Drink.findOne({id: req.params.id}) 
+  .then(db => {
+    res.json(db);
+  })
+  .catch(err => {
+    res.json(err);
+  });
+});
+// UPDATE NOTES FOR ONE DRINK AT DRINK ID
 router.put("/update/notes/:id", (req, res) => {
-    Drink.findAndModify({notes: ""})
-    .then(db => {
-      res.json(db);
-    })
-    .catch(err => {
-      res.json(err);
-    });
-});
-//UPDATE RATING
+  let id = {
+    _id: req.params.id
+  };
+    Drink.updateOne({_id: id}, {$set:{'notes': req.body.notes}}, (err, result) => {
+          if(err) {
+            throw err;
+          }
+          res.send('notes updated sucessfully');
+        });
+      });
+//UPDATE RATING FOR ONE DRINK AT DRINK ID
 router.put("/update/ratings/:id", (req, res) => {
-    Drink.findAndModify({rating: ""})
-    .then(db => {
-      res.json(db);
-    })
-    .catch(err => {
-      res.json(err);
+  let id = {
+    _id: req.params.id
+  };
+    Drink.updateOne({_id: id}, {$set:{'rating': req.body.rating}}, (err, result) => {
+          if(err) {
+            throw err;
+          }
+          res.send('rating updated sucessfully');
+        });
+      });
+
+//DELETE DRINK AT DRINK ID
+router.delete("/delete/:id", (req, res) => {
+
+    Drink.findByIdAndRemove(req.params.id, (err, result) => {
+      if(err) {
+        throw err;
+      }
+      res.send('user deleted sucessfully');
     });
-});
+  });
 
-// let id = {
-//     _id: ObjectID(req.params.id)
-//   };
-
-//   dbase.collection("name").update({_id: id}, {$set:{'first_name': req.body.first_name, 'last_name': req.body.last_name}}, (err, result) => {
-//     if(err) {
-//       throw err;
-//     }
-//     res.send('user updated sucessfully');
-//   });
-// });
-
-//DELETE DRINK
-router.delete("/delete", (req, res) => {
-    Drink.deleteOne({})
-    .then(db => {
-      res.json(db);
-    })
-    .catch(err => {
-      res.json(err);
-    });
-});
 
 module.exports = router;

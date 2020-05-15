@@ -17,7 +17,7 @@ const User = require("../models/User");
 //POST TO CREATE DRINK PREFERENCES FOR EACH USER
 router.post("/", ({body}, res) => {
     Drink.create(body)
-    .then(({ _id }) => User.findOneAndUpdate({}, { $push: { drinks: _id } }, { new: true }))
+    .then(({ _id }) => User.findOneAndUpdate({"username":"DarthVader"}, { $push: { drinks: _id } }, { new: true }))
     .then(db => {
       res.json(db);
     })
