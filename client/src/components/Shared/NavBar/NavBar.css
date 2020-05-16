@@ -74,6 +74,7 @@ nav img:hover {
   font-weight: bold;
   font-size: 32px;
   position: absolute;
+  display: inline-block;
   top: 30px;
-  right: 640px;
+  right: 790px;
 }

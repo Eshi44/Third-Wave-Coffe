@@ -23,14 +23,15 @@
 ```  
 
  # Technologies
- * HTML & CSS
- * React
+ * Animate.css
+ * Bootstrap
+ * Express
  * MongoDB
  * Mongoose ODM
- * Node.js
- * Express
+ * HTML & CSS
  * JavaScript
- * Bootstrap
+ * jQuery
+ * Node.js
  * NPM:
    * axios
    * concurrently
@@ -47,13 +48,14 @@
    * react-dom
    * react-router-dom
    * react-scripts
+* REACT
 
 # Features & Information
 
 This application follows the MVC paradigm, follows good quality coding standards, contains full CRUD functionality, and authenticates users. Users passwords are hashed as well as encrypted in a JSON Web Token. Environmental variables are also hidden. Users can securly login and keep track of their coffee creations.
   
   # Wireframes
-## 
+
   ><img src="images/screen-one.png" alt="screen one" width="50%" height="50%">
  
 ## 

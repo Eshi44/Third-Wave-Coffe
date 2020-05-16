@@ -4,9 +4,9 @@ const Drink = require("../models/Drink");
 const User = require("../models/User");
 
 // GET ALL DRINKS FROM ONE USER
-router.get("/all", (req, res) => {
+router.get("/all/:username", (req, res) => {
 	Drink.find({})
-		.then(({}) => User.findOne({ username: "AgentDaleCooper" }))
+		.then(({}) => User.findOne({ username: req.params.username }))
 		.then((db) => {
 			res.json(db);
 		})
@@ -14,7 +14,7 @@ router.get("/all", (req, res) => {
 			res.json(err);
 		});
 });
-//GET ONE DRINK FROM ONE USER
+//GET ONE DRINK BY DRINK ID
 router.get("/one/:id", (req, res) => {
 	Drink.findOne({ _id: req.params.id })
 		.then((db) => {
