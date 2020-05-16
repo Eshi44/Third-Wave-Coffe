@@ -58,7 +58,7 @@ router.put("/update/ratings/:id", (req, res) => {
 });
 //DELETE DRINK AT DRINK ID
 router.delete("/delete/:id", (req, res) => {
-	Drink.findByIdAndRemove(req.params.id, (err, result) => {
+	Drink.findByIdAndRemove({_id:req.params.id}, (err, result) => {
 		if (err) {
 			throw err;
 		}

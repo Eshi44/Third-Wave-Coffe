@@ -32,7 +32,7 @@ class Brew extends Component {
 							<span type="radio" id="star5" className="fa fa-star fa-3x"></span>
 						</div>
 						<div className="col col-sm-4 col-md-4 col-lg-4 ">
-							<div class="form-group">
+							<div className="form-group">
 								<label htmlFor="exampleFormControlTextarea1" id="notes">
 									Notes:
 								</label>

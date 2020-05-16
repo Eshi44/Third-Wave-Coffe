@@ -5,19 +5,19 @@ const User = require("../models/User");
 
 // EXAMPLE TO TEST
 // {
-//     "method": "chemex", 
-//     "size": "small", 
-//     "strength": "strong", 
-//     "roast": "light", 
-//     "rating": 3, 
-//     "favorite": true, 
-//     "notes": "Black Coffee!"
+    // "method": "chemex", 
+    // "size": "small", 
+    // "strength": "strong", 
+    // "roast": "light", 
+    // "rating": 3, 
+    // "favorite": true, 
+    // "notes": "Black Coffee!"
 // }
 
 //POST TO CREATE DRINK PREFERENCES FOR EACH USER
 router.post("/", ({body}, res) => {
     Drink.create(body)
-    .then(({ _id }) => User.findOneAndUpdate({"username":"DarthVader"}, { $push: { drinks: _id } }, { new: true }))
+    .then(({ _id }) => User.findOneAndUpdate({"username":"AgentDaleCooper"}, { $push: { drinks: _id } }, { new: true }))
     .then(db => {
       res.json(db);
     })

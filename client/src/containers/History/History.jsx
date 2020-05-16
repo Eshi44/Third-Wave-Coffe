@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Header from "../../components/Shared/Header/Header";
 import "./History.css";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import $ from "jquery";
 
 class History extends Component {
 	constructor() {
@@ -42,83 +42,87 @@ class History extends Component {
 			});
 	}
 
+	postDrink(date, method, notes, rating, id) {
+		console.log(date);
+		console.log(method);
+		console.log(notes);
+		console.log(rating);
+		console.log(id);
 
+		$("#drinkTableInsert").append(`<tr id="row${id}" >
+<th scope="row">
+	<a href="/brew?${id}">
+		<button
+			type="button"
+			id="brew-btn-brew"
+			className="btn btn-primary"
+		>
+			Brew!
+		</button>
+	</a>
+</th>
+<td>${date}</td>
+<td>${method}</td>
+<td>
+${rating}/5
+</td>
+<td>${notes}</td>
+<td>
+	<button
+		type="button"
+		className="btn btn-danger"
+		id="delete-btn${id}"
+	>
+		Delete
+	</button>
+</td>
+</tr>`);
 
-	
-postDrink(date, method, notes, rating) {
-	console.log(date);
-	console.log(method);
-	console.log(notes);
-	console.log(rating);
-
-
-// $("#drinkTableInsert").append(`<tr >
-// <th scope="row">
-// 	<Link to="/brew">
-// 		<button
-// 			type="button"
-// 			id="brew-btn-brew"
-// 			className="btn btn-primary"
-// 		>
-// 			Brew!
-// 		</button>
-// 	</Link>
-// </th>
-// <td></td>
-// <td>Chemex</td>
-// <td>
-// 	<span className="fa fa-star checked"></span>
-// 	<span className="fa fa-star checked"></span>
-// 	<span className="fa fa-star checked"></span>
-// 	<span className="fa fa-star"></span>
-// 	<span className="fa fa-star"></span>
-// </td>
-// <td>Blah blah blah...</td>
-// <td>
-// 	<button
-// 		type="button"
-// 		className="btn btn-danger"
-// 		id="delete-btn"
-// 	>
-// 		Delete
-// 	</button>
-// </td>
-// </tr>`);
-
-
-
-
+$(`#delete-btn${id}`).click(function() {
+	axios
+			.delete(`/api/history/delete/${id}`, {
+				id,
+			})
+			.then(async (response) => {
+				console.log("DELETE SUCCESS");
+				$(`#row${id}`).remove();
+				console.log(response);
+			})
+			.catch((err) => {
+				console.log(err);
+				console.log(err.response.data.message);
+				this.setState({ error: "DELETE Failure" });
+			});
+  });
 
 	}
 
 
+	getDrink(id) {
+		axios
+			.get(`/api/history/one/${id}`, {
+				id,
+			})
+			.then(async (response) => {
+				console.log("DRINK GREAT SUCCESS");
+				console.log(response);
+				var formatedDate = new Date(response.data.date).toLocaleDateString(
+					"en-US"
+				);
+				this.postDrink(
+					formatedDate,
+					response.data.method,
+					response.data.notes,
+					response.data.rating,
+					response.data._id,
+				);
 
- getDrink(id) { 
-	axios
-	.get(`/api/history/one/${id}`, {
-		id,
-	})
-	.then(async (response) => {
-		console.log("GREAT SUCCESS");
-		console.log(response);
-		var formatedDate = new Date(response.data.date).toLocaleDateString("en-US");
-        this.postDrink(formatedDate, response.data.method, response.data.notes, response.data.rating);
-	//    date: "2020-05-15T14:55:38.574Z"
-	//    favorite: true
-	//    method: "aeropress"
-	//    notes: "Black as night!"
-	//    rating: 3
-	})
-	.catch((err) => {
-		console.log(err);
-		console.log(err.response.data.message);
-		this.setState({ error: "Failure" });
-	});
-}
-
-
-
-
+			})
+			.catch((err) => {
+				console.log(err);
+				this.setState({ error: "Failure" });
+			});
+	}
 
 	render() {
 		return (
@@ -138,48 +142,10 @@ postDrink(date, method, notes, rating) {
 							</tr>
 						</thead>
 						<tbody id="drinkTableInsert">
+							{/* ----------------------- */}
 
-{/* ----------------------- */}
-
-
-
-							<tr >
-								<th scope="row">
-									<Link to="/brew">
-										<button
-											type="button"
-											id="brew-btn-brew"
-											className="btn btn-primary"
-										>
-											Brew!
-										</button>
-									</Link>
-								</th>
-								<td>5/12/20</td>
-								<td>Chemex</td>
-								<td>
-									<span className="fa fa-star checked"></span>
-									<span className="fa fa-star checked"></span>
-									<span className="fa fa-star checked"></span>
-									<span className="fa fa-star"></span>
-									<span className="fa fa-star"></span>
-								</td>
-								<td>Blah blah blah...</td>
-								<td>
-									<button
-										type="button"
-										className="btn btn-danger"
-										id="delete-btn"
-									>
-										Delete
-									</button>
-								</td>
-							</tr>
-
-
-{/* ----------------------- */}
-
-
+							
+							{/* ----------------------- */}
 						</tbody>
 					</table>
 				</div>
