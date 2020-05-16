@@ -6,9 +6,9 @@ const DrinksSchema = new Schema({
 	size: { type: String },
 	strength: { type: String },
 	roast: { type: String },
-	rating: { type: Number },
+	rating: { type: Number, default: 0 },
 	favorite: { type: Boolean, default: false },
-	notes: { type: String },
+	notes: { type: String, default: "" },
 	date: { type: Date, default: Date.now },
 });
 

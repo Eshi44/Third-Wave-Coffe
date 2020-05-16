@@ -58,12 +58,19 @@ router.put("/update/ratings/:id", (req, res) => {
 });
 //DELETE DRINK AT DRINK ID
 router.delete("/delete/:id", (req, res) => {
-	Drink.findByIdAndRemove({_id:req.params.id}, (err, result) => {
+	Drink.findByIdAndRemove(req.params.id, (err, result) => {
 		if (err) {
 			throw err;
 		}
 		res.send("user deleted sucessfully");
 	});
 });
+// //DELETE DRINK AT DRINK ID
+// router.delete("/delete/:id/drinks/:id", (req, res) => {
+// 	User.update(req.params.id, {"$pull":{"drinks": {_id: req.params.id}}}, { safe: true, upsert: true  }, function(err, obj) {
+// 		res.send("user deleted sucessfully");
+// 	});
+// });	
+
 
 module.exports = router;

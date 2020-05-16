@@ -37,7 +37,7 @@ class History extends Component {
 			})
 			.catch((err) => {
 				console.log(err);
-				console.log(err.response.data.message);
+				
 				this.setState({ error: "Failure" });
 			});
 	}

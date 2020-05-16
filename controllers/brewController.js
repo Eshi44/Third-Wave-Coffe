@@ -15,9 +15,11 @@ const User = require("../models/User");
 // }
 
 //POST TO CREATE DRINK PREFERENCES FOR EACH USER
-router.post("/", ({body}, res) => {
-    Drink.create(body)
-    .then(({ _id }) => User.findOneAndUpdate({"username":"AgentDaleCooper"}, { $push: { drinks: _id } }, { new: true }))
+router.post("/:username", (req, res) => {
+  console.log("BEHOLD MY BODY");
+  console.log(req.body.method);
+    Drink.create({method:req.body.method, size:req.body.size,strength:req.body.strength, roast:req.body.roast}  )
+    .then(({ _id }) => User.findOneAndUpdate({username: req.params.username}, { $push: { drinks: _id } }, { new: true }))
     .then(db => {
       res.json(db);
     })

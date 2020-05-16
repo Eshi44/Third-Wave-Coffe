@@ -8,21 +8,56 @@ import LightRoast from "../../images/light-roast.png";
 import MedRoast from "../../images/medium-roast.png";
 import DarkRoast from "../../images/dark-roast.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import $ from "jquery";
 
 class Chemex extends Component {
 	constructor() {
 		super();
 		var queryString = window.location.search;
-		var method = queryString.split("?")[1];
+		var brewMethod = queryString.split("?")[1];
 		// console.log(method);
 		this.state = {
-			name: method,
+			name: brewMethod,
 		};
 	}
 
 
 
+componentDidMount () {
+	const username = localStorage.getItem("username");
+	$('#brew-btn').click(function() {
 
+
+		var strength = "STRONK";
+		var method = "CHEMEX";
+		var	size = "large";
+		var	roast = "light";
+
+	// var strength = $("input[name=strength]:checked").value;
+	// console.log(strength);
+
+
+		console.log("YOUVE TOUCHED THE BUTTON");
+		axios
+				.post(`/api/brew/${username}`, {
+		method, 
+		size,
+		strength,
+		roast,
+				})
+				.then(async (response) => {
+					console.log("SAVE SUCCESS");
+					console.log(response);
+				})
+				.catch((err) => {
+					console.log(err);
+					console.log(err.response.data.message);
+					this.setState({ error: "DELETE Failure" });
+				});
+	  });
+
+	}
 	
 	render() {
 		return (
@@ -70,14 +105,14 @@ class Chemex extends Component {
 							<h3 id="desiredText">Desired Strength:</h3>
 							<div className="row">
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-									<input type="radio" id="weak" name="coffee" value="weak" />
-									<label id="textwms" for="weak">
+									<input type="radio" id="weak" name="strength" value="weak" />
+									<label id="textwms" forHTML="weak">
 										Weak{" "}
 									</label>
 								</div>
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-									<input type="radio" id="med" name="coffee" value="med" />
-									<label id="textwms" for="med">
+									<input type="radio" id="med" name="strength" value="med" />
+									<label id="textwms" forHTML="med">
 										Medium{" "}
 									</label>
 								</div>
@@ -85,10 +120,10 @@ class Chemex extends Component {
 									<input
 										type="radio"
 										id="strong"
-										name="coffee"
+										name="strength"
 										value="strong"
 									/>
-									<label id="textwms" for="strong">
+									<label id="textwms" forHTML="strong">
 										Strong
 									</label>
 								</div>
@@ -147,6 +182,9 @@ class Chemex extends Component {
 				</div>
 			</>
 		);
+
+
+		
 	}
 }
 export default Chemex;
