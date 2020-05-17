@@ -27,6 +27,8 @@
 	margin-top: 5%;
 }
 /* star checked */
-.checked {
-    color: orange;
+
+  [type=radio]:checked {
+	color: orange;
+    
   }

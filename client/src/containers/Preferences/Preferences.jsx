@@ -67,7 +67,7 @@ roast,
 	.then(async (response) => {
 		console.log("SAVE SUCCESS - RESPONSE ID BELOW");
 		console.log(response.data._id);
-		if(localStorage.getItem("drinkID") != "")
+		if(localStorage.getItem("drinkID") !== "")
 		localStorage.removeItem("drinkID");
 		localStorage.setItem("drinkID", response.data._id);
 	})

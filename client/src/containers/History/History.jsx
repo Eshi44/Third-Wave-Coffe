@@ -93,7 +93,7 @@ ${rating}/5
 
 $(`#brew-btn-brew${id}`).click(function() {
 
-	if(localStorage.getItem("drinkID") != "")
+	if(localStorage.getItem("drinkID") !== "")
 	localStorage.removeItem("drinkID");
 	localStorage.setItem("drinkID", id);
 });

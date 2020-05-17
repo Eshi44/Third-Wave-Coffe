@@ -3,36 +3,128 @@ import Header from "../../components/Shared/Header/Header";
 import History from "../../images/history.png";
 import { Link } from "react-router-dom";
 import "./Brew.css";
+import axios from "axios";
+import $ from "jquery";
 
 class Brew extends Component {
-	constructor() {
-		super();
-		var queryString = window.location.pathname;
-		var method = queryString.split("/");
 
-		console.log(method);
-		this.state = {
-			name: method,
+
+
+
+		state = {
+			drinkID: ""	
 		};
+	
+
+
+	componentDidMount() {
+
+
+		var drinkID = localStorage.getItem("drinkID");
+		this.setState({drinkID: drinkID});
+		var brew;
+		
+		axios
+			.get(`/api/history/one/${drinkID}`, {
+			})
+			.then(async (response) => {
+				console.log("I AM GETTING A DRINK DATAAAAA");
+				brew = {
+					// method: response.data.method,
+					notes: response.data.notes,
+					rating: response.data.rating,
+					roast: response.data.roast,
+					size: response.data.size,
+					strenth: response.data.strength,
+				}
+				console.log(brew);
+				// test to make sure empty case works
+			
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+
+
+			// var rating = document.querySelectorAll("input[name=rating]:checked")[0].value;
 	}
+
+
+	starClicked() {
+		console.log("YOU CLIKEDDD A STARRR!");
+		var val = document.querySelectorAll("input[name=rating]:checked")[0].value;
+		console.log(val);
+var clear = 5;
+		while (clear >=1 ) {
+			$(`#star${clear}`).css({"color": "black"});
+			clear--;
+		}
+while (val >= 1 ) {
+	$(`#star${val}`).css({"color": "orange"});
+	val--;
+}
+	}
+
+
+	save() {
+
+		// var rating = document.querySelectorAll("input[name=rating]:checked")[0].value;
+		var drinkID = localStorage.getItem("drinkID");
+
+		// if(rating !==null) {
+		// axios
+		// 	.put(`/api/history/update/ratings/${drinkID}`, {
+		// 		rating
+		// 	})
+		// 	.then(async (response) => {
+		// 		console.log("I AM SAVING ME A RATING");
+				
+		// 		// test to make sure empty case works
+			
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log(err);
+		// 	});
+		// }
+
+var notes = $("#exampleFormControlTextarea1").val();
+console.log(notes);
+		if(notes !==null) {
+			axios
+				.put(`/api/history/update/notes/${drinkID}`, {
+					notes
+				})
+				.then(async (response) => {
+					console.log("I AM SAVING ME A NOTE");
+					
+					// test to make sure empty case works
+				
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+			}
+
+	}
+
 	render() {
 		return (
 			<>
-				<Header name={this.state.name} />
+				<Header name="Brew" />
 				<div className="container">
 					<div className="row">
 						<div
 							className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center"
 							id="setBrewRating"
 						>
-							<span type="radio" id="star1" className="fa fa-star fa-3x"></span>
-							<span type="radio" id="star2" className="fa fa-star fa-3x"></span>
-							<span type="radio" id="star3" className="fa fa-star fa-3x"></span>
-							<span type="radio" id="star4" className="fa fa-star fa-3x"></span>
-							<span type="radio" id="star5" className="fa fa-star fa-3x"></span>
+							<input type="radio" onClick={this.starClicked} name="rating" value="1" id="star1" className="fa fa-star fa-3x"></input>
+							<input type="radio" onClick={this.starClicked} name="rating" value="2" id="star2" className="fa fa-star fa-3x"></input>
+							<input type="radio" onClick={this.starClicked} name="rating" value="3" id="star3" className="fa fa-star fa-3x"></input>
+							<input type="radio" onClick={this.starClicked} name="rating" value="4" id="star4" className="fa fa-star fa-3x"></input>
+							<input type="radio" onClick={this.starClicked} name="rating" value="5" id="star5" className="fa fa-star fa-3x"></input>
 						</div>
 						<div className="col col-sm-4 col-md-4 col-lg-4 ">
-							<div className="form-group">
+							<div class="form-group">
 								<label htmlFor="exampleFormControlTextarea1" id="notes">
 									Notes:
 								</label>
@@ -42,11 +134,11 @@ class Brew extends Component {
 									rows="3"
 								></textarea>
 							</div>
-							<Link to="/history">
-								<button type="button" id="save-btn" className="btn btn-primary">
+							{/* <Link to="/history"> */}
+								<button type="button" id="save-btn" onClick={this.save} className="btn btn-primary">
 									Save
 								</button>
-							</Link>
+							{/* </Link> */}
 						</div>
 						<div className="col col-sm-4 col-md-4 col-lg-4" id="history">
 							<Link to="/history">
