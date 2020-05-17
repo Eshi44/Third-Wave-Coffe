@@ -25,21 +25,22 @@ class Brew extends Component {
 				console.log("I AM about to log response");
 				console.log(response);
 				brew = {
-					// method: response.data.method,
+					method: response.data.method,
 					notes: response.data.notes,
 					rating: response.data.rating,
 					roast: response.data.roast,
 					size: response.data.size,
-					strenth: response.data.strength,
+					strength: response.data.strength,
 				};
 				console.log(brew);
 				this.setState({brew:brew})
-				if(this.state.brew.notes !== null)
+				if(this.state.brew.notes !== "")
 				$("#exampleFormControlTextarea1").val(this.state.brew.notes);
-				if(this.state.brew.rating !== null) {
+				if(this.state.brew.rating !== 0) {
 				$(`#star${this.state.brew.rating}`).prop("checked", true);
-				this.starClicked()
+				this.starClicked();
 				}
+				this.showInstructions();
 			})
 			.catch((err) => {
 				console.log(err);
@@ -60,6 +61,55 @@ class Brew extends Component {
 			$(`#star${val}`).css({ color: "orange" });
 			val--;
 		}
+	}
+	
+
+	showInstructions() { 
+
+		var instructions = {
+		  ratio : "",
+		  groundSize: "",
+		  groundAmount: "",
+		  waterAmount: "",
+		  waterTemp: "",
+		  time: "",
+		};
+
+		if(this.state.brew.method === "Chemex") {
+		instructions.ratio = 1.5 * 300;
+		}
+
+		if(this.state.brew.method === "Aeropress") {
+			instructions.ratio = 1.5 * 300;
+			}
+			if(this.state.brew.method === "Frenchpress") {
+				instructions.ratio = 1.5 * 300;
+				}
+
+
+				if(this.state.brew.strength === "Strong") {
+					console.log("ANGBODY HOME???");
+					instructions.ratio += 100;
+				}
+	
+
+
+		$("#card-body").append(`<div className="card-body">
+		<div className="col col-sm-4 col-md-4 col-lg-4">
+			<h4>Instructions:</h4>
+			<p>.....</p>
+			<h5>Ratio: Use a ratio of ${instructions.ratio} grams of HOT BEANS to water </h5>
+			<h5>Ground Size:</h5>
+			<h5>Ground Amount:</h5>
+			<h5>Water Amount:</h5>
+			<h5>Water Temp:</h5>
+			<h5>Time:</h5>
+		</div>
+		<div className="col col-sm-4 col-md-4 col-lg-4"></div>
+		<div className="col col-sm-4 col-md-4 col-lg-4"></div>
+	</div>`);
+
+
 	}
 
 	save() {
@@ -198,20 +248,6 @@ class Brew extends Component {
 						</div>
 						<div className="container" id="cardCalculation">
 							<div className="card" id="card-body">
-								<div className="card-body">
-									<div className="col col-sm-4 col-md-4 col-lg-4">
-										<h4>Instructions:</h4>
-										<p>.....</p>
-										<h5>Ratio:</h5>
-										<h5>Ground Size:</h5>
-										<h5>Ground Amount:</h5>
-										<h5>Water Amount:</h5>
-										<h5>Water Temp:</h5>
-										<h5>Time:</h5>
-									</div>
-									<div className="col col-sm-4 col-md-4 col-lg-4"></div>
-									<div className="col col-sm-4 col-md-4 col-lg-4"></div>
-								</div>
 							</div>
 						</div>
 					</div>

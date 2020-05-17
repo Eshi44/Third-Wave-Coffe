@@ -10,6 +10,23 @@ import { Link } from "react-router-dom";
 
 class Dashboard extends Component {
 	componentDidMount(username) {
+		//redirect if no token
+		if (localStorage.length == 0) {
+			window.history.pushState(
+				`http://localhost:3000/dashboard/${url}`,
+				"url",
+				"/403"
+			);
+			window.location.reload(true);
+		} else if (localStorage.length == 0) {
+			window.history.pushState(
+				`https://third-wave-coffee-app.herokuapp.com/dashboard/${url}`,
+				"url",
+				"/403"
+			);
+			window.location.reload(true);
+		}
+
 		localStorage.getItem("username", username);
 		console.log("username");
 		console.log(window.localStorage.username);
