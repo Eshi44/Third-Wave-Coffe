@@ -121,3 +121,13 @@ div#card-body{
 	background-color: #d3a664;
 	border-color: #d3a664;
 }
+/* [type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  } */
+  [type=radio]:checked + img {
+    box-shadow: 0 0 3pt 2pt rgb(0, 0, 0);
+    
+  }

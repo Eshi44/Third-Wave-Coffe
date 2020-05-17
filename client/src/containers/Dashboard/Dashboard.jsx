@@ -21,6 +21,8 @@ class Dashboard extends Component {
 //need get route in authcontroller
 //find by id in url and get username
 componentDidMount(username) {
+
+	// WTFFFF YOU SMOKING?????
 	localStorage.getItem("username", username);
 	console.log("username");
 	console.log(window.localStorage.username);

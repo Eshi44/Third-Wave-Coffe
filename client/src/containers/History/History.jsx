@@ -42,6 +42,11 @@ class History extends Component {
 			});
 	}
 
+
+
+
+
+
 	postDrink(date, method, notes, rating, id) {
 		console.log(date);
 		console.log(method);
@@ -49,12 +54,19 @@ class History extends Component {
 		console.log(rating);
 		console.log(id);
 
+        // console.log("BELOW IS MY ID FROM LOCAL STORAGE");
+		// console.log(localStorage.getItem("drinkID"));
+	
+
+
+
+
 		$("#drinkTableInsert").append(`<tr id="row${id}" >
 <th scope="row">
-	<a href="/brew?${id}">
+	<a href="/brew">
 		<button
 			type="button"
-			id="brew-btn-brew"
+			id="brew-btn-brew${id}"
 			className="btn btn-primary"
 		>
 			Brew!
@@ -77,6 +89,14 @@ ${rating}/5
 	</button>
 </td>
 </tr>`);
+
+
+$(`#brew-btn-brew${id}`).click(function() {
+
+	if(localStorage.getItem("drinkID") != "")
+	localStorage.removeItem("drinkID");
+	localStorage.setItem("drinkID", id);
+});
 
 $(`#delete-btn${id}`).click(function() {
 	axios
