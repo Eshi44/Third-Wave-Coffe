@@ -1,6 +1,11 @@
-# Third Wave Coffee   :coffee: A Full Stack MERN App
+# Third Wave Coffee   :coffee:  A Full Stack MERN App
 
  Many aspiring coffee lovers want to partake in the third wave coffee movement and enjoy quality coffee at home using their own home-brewing devices. Third Wave Coffee App caters to the beginner who is interested in creating coffee at home, but is new to many terms, devices, ideal brewing ratios, ect.
+
+# Deployed Application
+
+Try it out! 
+[Third Wave Coffee](https://third-wave-coffee-app.herokuapp.com/)
 
 
   # User Story
@@ -34,6 +39,7 @@
  * Node.js
  * NPM:
    * axios
+   * chart.js
    * concurrently
    * express
    * nodemon
@@ -48,12 +54,28 @@
    * react-dom
    * react-router-dom
    * react-scripts
+   * react-tooltip
 * REACT
 
 # Features & Information
 
 This application follows the MVC paradigm, follows good quality coding standards, contains full CRUD functionality, and authenticates users. Users passwords are hashed as well as encrypted in a JSON Web Token. Environmental variables are also hidden. Users can securly login and keep track of their coffee creations.
   
+# Preview
+
+
+  ><img src="images/front-page.JPG" alt="screen one" width="50%" height="50%">
+
+  ><img src="images/sign-in-page.JPG" alt="screen one" width="50%" height="50%">
+
+ ><img src="images/user-dashboard-page.JPG" alt="screen one" width="50%" height="50%">
+
+  ><img src="images/preferences-page.JPG" alt="screen one" width="50%" height="50%">
+
+  ><img src="images/brew-page.JPG" alt="screen one" width="50%" height="50%">
+
+  ><img src="images/history-page.JPG" alt="screen one" width="50%" height="50%">
+
   # Wireframes
 
   ><img src="images/screen-one.png" alt="screen one" width="50%" height="50%">
@@ -66,4 +88,5 @@ This application follows the MVC paradigm, follows good quality coding standards
 
 # Flow Chart
 
-<img src="images/flow-chart.png" alt="flow chart">
+><img src="images/flow-chart.png" alt="flow chart" width="50%" height="50%">
+
