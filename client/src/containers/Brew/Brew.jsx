@@ -9,6 +9,7 @@ import $ from "jquery";
 class Brew extends Component {
 	state = {
 		drinkID: "",
+		brew:{},
 	};
 
 	componentDidMount() {
@@ -32,13 +33,18 @@ class Brew extends Component {
 					strenth: response.data.strength,
 				};
 				console.log(brew);
-				// test to make sure empty case works
+				this.setState({brew:brew})
+				if(this.state.brew.notes !== null)
+				$("#exampleFormControlTextarea1").val(this.state.brew.notes);
+				if(this.state.brew.rating !== null) {
+				$(`#star${this.state.brew.rating}`).prop("checked", true);
+				this.starClicked()
+				}
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 
-		// var rating = document.querySelectorAll("input[name=rating]:checked")[0].value;
 	}
 
 	starClicked() {
