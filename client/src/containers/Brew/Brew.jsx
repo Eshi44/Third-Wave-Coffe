@@ -13,13 +13,16 @@ class Brew extends Component {
 
 	componentDidMount() {
 		var drinkID = localStorage.getItem("drinkID");
+		console.log("IS THERE A DRINK ID IN LOCAL?????");
+		console.log(drinkID);
 		this.setState({ drinkID: drinkID });
 		var brew;
 
 		axios
 			.get(`/api/history/one/${drinkID}`, {})
 			.then(async (response) => {
-				console.log("I AM GETTING A DRINK DATAAAAA");
+				console.log("I AM about to log response");
+				console.log(response);
 				brew = {
 					// method: response.data.method,
 					notes: response.data.notes,

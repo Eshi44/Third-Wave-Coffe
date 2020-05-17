@@ -29,9 +29,9 @@ class Chemex extends Component {
 
 		this.saveDrink(method, strength, size, roast);
 
-		this.setState({
-			redirect: true,
-		});
+		// this.setState({
+		// 	redirect: true,
+		// });
 	};
 
 	renderRedirect = () => {
@@ -46,10 +46,7 @@ class Chemex extends Component {
 		}
 	};
 
-	setRedirectID(id) {
-		this.setState({ id: id });
-		console.log(id);
-	}
+
 
 	saveDrink(method, strength, size, roast) {
 		const username = localStorage.getItem("username");
@@ -61,11 +58,19 @@ class Chemex extends Component {
 				roast,
 			})
 			.then(async (response) => {
-				console.log("SAVE SUCCESS - RESPONSE ID BELOW");
-				console.log(response.data._id);
+				console.log("SAVE SUCCESS - RESPONSE DATA BELOW");
+				console.log(response);
+				console.log(response.data.drinks[(response.data.drinks.length - 1)]);
+				console.log(size);
+				console.log(strength);
+				console.log(roast);
 				if (localStorage.getItem("drinkID") !== "")
 					localStorage.removeItem("drinkID");
-				localStorage.setItem("drinkID", response.data._id);
+				localStorage.setItem("drinkID", response.data.drinks[(response.data.drinks.length - 1)]);
+				this.setState({
+					redirect: true,
+				});
+
 			})
 			.catch((err) => {
 				console.log(err);
