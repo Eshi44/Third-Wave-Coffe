@@ -6,6 +6,7 @@ import "./Brew.css";
 import axios from "axios";
 import $ from "jquery";
 
+
 class Brew extends Component {
 	state = {
 		drinkID: "",
@@ -178,7 +179,7 @@ class Brew extends Component {
 
 		$("#card-body").append(`<div className="card-body" id="paddingPlease">
 		<div className="col col-sm-4 col-md-4 col-lg-4">
-			<h4>Instructions: </h4>
+			<h4 >Instructions: </h4>
 			<p id="instructionsTextBold">${this.state.brew.size} sized, ${this.state.brew.strength} strength, ${this.state.brew.roast} roast </p>
 			<p id= "instructionsText"> First, take out and set aside your ${this.state.brew.method}. Grab approximatley ${instructions.waterAmount} of water and ${instructions.groundAmount} of ${instructions.groundSize} coffee.
 			Next, boil the ${instructions.waterAmount} of water to ${instructions.waterTemp}. Brew coffee for approximately ${instructions.time}.</p>
@@ -289,7 +290,7 @@ class Brew extends Component {
 						<div className="col col-sm-4 col-md-4 col-lg-4 ">
 							<div className="form-group">
 								<label htmlFor="exampleFormControlTextarea1" id="notes">
-									Notes:
+										Notes:
 								</label>
 								<textarea
 									className="form-control"
