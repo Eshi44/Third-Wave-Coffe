@@ -37,15 +37,10 @@ class History extends Component {
 			})
 			.catch((err) => {
 				console.log(err);
-				
+
 				this.setState({ error: "Failure" });
 			});
 	}
-
-
-
-
-
 
 	postDrink(date, method, notes, rating, id) {
 		console.log(date);
@@ -54,17 +49,18 @@ class History extends Component {
 		console.log(rating);
 		console.log(id);
 
-        // console.log("BELOW IS MY ID FROM LOCAL STORAGE");
+		// console.log("BELOW IS MY ID FROM LOCAL STORAGE");
 		// console.log(localStorage.getItem("drinkID"));
-	
-
-
-
 
 		$("#drinkTableInsert").append(`<tr id="row${id}" >
 <th scope="row">
 	<a href="/brew">
-		<button
+		<button style="color: white;
+		font-weight: bold;
+		font-size: large;
+		background-color: #e4bc7e;
+		border-color: #d3a664;
+		border-width: 3px"
 			type="button"
 			id="brew-btn-brew${id}"
 			className="btn btn-primary"
@@ -76,11 +72,12 @@ class History extends Component {
 <td>${date}</td>
 <td>${method}</td>
 <td>
-${rating}/5
+
+${rating}/5 <span className="fa fa-star fa-2x">  <i class="fa fa-star fa-2x":class="icon"></i></span>
 </td>
 <td>${notes}</td>
 <td>
-	<button
+	<button style="background-color: #d36159; border-color: #c0463e; border-width: 3px; font-size: large;color: white; font-weight: bold"
 		type="button"
 		className="btn btn-danger"
 		id="delete-btn${id}"
@@ -90,33 +87,29 @@ ${rating}/5
 </td>
 </tr>`);
 
+		$(`#brew-btn-brew${id}`).click(function () {
+			if (localStorage.getItem("drinkID") !== "")
+				localStorage.removeItem("drinkID");
+			localStorage.setItem("drinkID", id);
+		});
 
-$(`#brew-btn-brew${id}`).click(function() {
-
-	if(localStorage.getItem("drinkID") !== "")
-	localStorage.removeItem("drinkID");
-	localStorage.setItem("drinkID", id);
-});
-
-$(`#delete-btn${id}`).click(function() {
-	axios
-			.delete(`/api/history/delete/${id}`, {
-				id,
-			})
-			.then(async (response) => {
-				console.log("DELETE SUCCESS");
-				$(`#row${id}`).remove();
-				console.log(response);
-			})
-			.catch((err) => {
-				console.log(err);
-				console.log(err.response.data.message);
-				this.setState({ error: "DELETE Failure" });
-			});
-  });
-
+		$(`#delete-btn${id}`).click(function () {
+			axios
+				.delete(`/api/history/delete/${id}`, {
+					id,
+				})
+				.then(async (response) => {
+					console.log("DELETE SUCCESS");
+					$(`#row${id}`).remove();
+					console.log(response);
+				})
+				.catch((err) => {
+					console.log(err);
+					console.log(err.response.data.message);
+					this.setState({ error: "DELETE Failure" });
+				});
+		});
 	}
-
 
 	getDrink(id) {
 		axios
@@ -134,9 +127,8 @@ $(`#delete-btn${id}`).click(function() {
 					response.data.method,
 					response.data.notes,
 					response.data.rating,
-					response.data._id,
+					response.data._id
 				);
-
 			})
 			.catch((err) => {
 				console.log(err);
@@ -161,12 +153,7 @@ $(`#delete-btn${id}`).click(function() {
 								<th scope="col">Delete</th>
 							</tr>
 						</thead>
-						<tbody id="drinkTableInsert">
-							{/* ----------------------- */}
-
-							
-							{/* ----------------------- */}
-						</tbody>
+						<tbody id="drinkTableInsert"></tbody>
 					</table>
 				</div>
 			</div>

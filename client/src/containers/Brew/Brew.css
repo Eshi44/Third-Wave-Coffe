@@ -27,8 +27,11 @@
 	margin-top: 5%;
 }
 /* star checked */
-
-  [type=radio]:checked {
-	color: orange;
-    
+  #stars{
+	  box-shadow: none;
+	  height: 50px;
+	
+  }
+ .fa.fa-star.fa-3x{
+	margin-right: 35px;
   }

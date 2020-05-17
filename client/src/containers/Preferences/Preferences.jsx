@@ -7,98 +7,76 @@ import LargeCup from "../../images/large-cup.png";
 import LightRoast from "../../images/light-roast.png";
 import MedRoast from "../../images/medium-roast.png";
 import DarkRoast from "../../images/dark-roast.png";
+import StrongStrength from "../../images/strong-strength.png";
+import MediumStrength from "../../images/medium-strength.png";
+import WeakStrength from "../../images/weak-strength.png";
 import axios from "axios";
 import $ from "jquery";
-import { Redirect } from 'react-router';
-
+import { Redirect } from "react-router";
 
 class Chemex extends Component {
+	state = {
+		name: "",
+		redirect: false,
+	};
 
-	
-		// console.log(method);
-		state = {
-			name: "",
-			redirect: false,
+	setRedirect = () => {
+		var method = $("#preferencesHeader").html();
+		var strength = document.querySelectorAll("input[name=strength]:checked")[0]
+			.value;
+		var size = document.querySelectorAll("input[name=size]:checked")[0].value;
+		var roast = document.querySelectorAll("input[name=roast]:checked")[0].value;
+
+		this.saveDrink(method, strength, size, roast);
+
+		this.setState({
+			redirect: true,
+		});
+	};
+
+	renderRedirect = () => {
+		if (this.state.redirect) {
+			return (
+				<Redirect
+					to={{
+						pathname: "/brew",
+					}}
+				/>
+			);
 		}
-	
+	};
 
-		setRedirect = () => {
+	setRedirectID(id) {
+		this.setState({ id: id });
+		console.log(id);
+	}
 
-			var method = $("#preferencesHeader").html();
-			var strength = document.querySelectorAll("input[name=strength]:checked")[0].value;
-			var size = document.querySelectorAll("input[name=size]:checked")[0].value;
-			var roast = document.querySelectorAll("input[name=roast]:checked")[0].value;
-
-			// console.log(strength);
-			// console.log(method);
-			// console.log(size);
-			// console.log(roast);
-
-			this.saveDrink(method,strength, size, roast);
-		
-			this.setState({
-			  redirect: true,
+	saveDrink(method, strength, size, roast) {
+		const username = localStorage.getItem("username");
+		axios
+			.post(`/api/brew/${username}`, {
+				method,
+				size,
+				strength,
+				roast,
 			})
-		  }
-
-		  renderRedirect = () => {
-			if (this.state.redirect) {
-			  return <Redirect to={{
-				pathname: '/brew',
-			}}
-	/>
-			}
-		  }
-
-		  setRedirectID(id) {
-			this.setState({id: id})
-			console.log(id);
-		  }
-
-saveDrink(method, strength, size, roast) {
-	const username = localStorage.getItem("username");
-	axios
-	.post(`/api/brew/${username}`, {
-method,
-size,
-strength,
-roast,
-	})
-	.then(async (response) => {
-		console.log("SAVE SUCCESS - RESPONSE ID BELOW");
-		console.log(response.data._id);
-		if(localStorage.getItem("drinkID") !== "")
-		localStorage.removeItem("drinkID");
-		localStorage.setItem("drinkID", response.data._id);
-	})
-	.catch((err) => {
-		console.log(err);
-	});
-}
+			.then(async (response) => {
+				console.log("SAVE SUCCESS - RESPONSE ID BELOW");
+				console.log(response.data._id);
+				if (localStorage.getItem("drinkID") !== "")
+					localStorage.removeItem("drinkID");
+				localStorage.setItem("drinkID", response.data._id);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
 
 	componentDidMount() {
-
 		var queryString = window.location.search;
 		var brewMethod = queryString.split("?")[1];
-		this.setState({name: brewMethod})
+		this.setState({ name: brewMethod });
 
-	// 	$("#brew-btn").click(function () {
-	// 		// var strength = "STRONK";
-	// 		// var method = $("#preferencesHeader").html();
-	// 		// var strength = document.querySelectorAll("input[name=strength]:checked")[0].value;
-	// 		// var size = document.querySelectorAll("input[name=size]:checked")[0].value;
-	// 		// var roast = document.querySelectorAll("input[name=roast]:checked")[0].value;
-
-	// 		// console.log(strength);
-	// 		// console.log(method);
-	// 		// console.log(size);
-	// 		// console.log(roast);
-
-	// // this.saveDrink(method,strength, size, roast);
-				
-	// 	}
-		
-	// 	);
 	}
 
 	render() {
@@ -120,6 +98,7 @@ roast,
 											value="Small"
 											className="img-responsive"
 											alt="Small Cup"
+											id="hideRadioBtn"
 										/>
 										<img id="inputOne" src={SmallCup} />
 									</label>
@@ -133,6 +112,7 @@ roast,
 											value="Medium"
 											className="img-responsive"
 											alt="Medium Cup"
+											id="hideRadioBtn"
 										/>
 										<img id="inputTwo" src={MedCup} />
 									</label>
@@ -146,6 +126,7 @@ roast,
 											value="Large"
 											className="img-responsive"
 											alt="Large Cup"
+											id="hideRadioBtn"
 										/>
 										<img id="inputThree" src={LargeCup} />
 									</label>
@@ -155,20 +136,42 @@ roast,
 							<h3 id="desiredText">Desired Strength:</h3>
 							<div className="row">
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-									<input type="radio" id="weak" name="strength" value="Weak" />
+									<label>
+										<input
+											type="radio"
+											id="weak"
+											name="strength"
+											value="Weak"
+											id="hideRadioBtn"
+										/>
+										<img id="inputThree" src={WeakStrength} />
+									</label>
 									<label id="textwms">Weak </label>
 								</div>
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-									<input type="radio" id="med" name="strength" value="Medium" />
+									<label>
+										<input
+											type="radio"
+											id="med"
+											name="strength"
+											value="Medium"
+											id="hideRadioBtn"
+										/>
+										<img id="inputThree" src={MediumStrength} />
+									</label>
 									<label id="textwms">Medium </label>
 								</div>
 								<div className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
-									<input
-										type="radio"
-										id="strong"
-										name="strength"
-										value="Strong"
-									/>
+									<label>
+										<input
+											type="radio"
+											id="strong"
+											name="strength"
+											value="Strong"
+											id="hideRadioBtn"
+										/>
+										<img id="inputThree" src={StrongStrength} />
+									</label>
 									<label id="textwms">Strong</label>
 								</div>
 							</div>
@@ -182,6 +185,7 @@ roast,
 											value="Light"
 											className="img-responsive"
 											alt="Light Roast"
+											id="hideRadioBtn"
 										/>
 										<img id="roastInputOne" src={LightRoast} />
 									</label>
@@ -195,6 +199,7 @@ roast,
 											value="Medium"
 											className="img-responsive"
 											alt="Med Roast"
+											id="hideRadioBtn"
 										/>
 										<img id="roastInputTwo" src={MedRoast} />
 									</label>
@@ -208,6 +213,7 @@ roast,
 											value="Dark"
 											className="img-responsive"
 											alt="Dark Roast"
+											id="hideRadioBtn"
 										/>
 										<img id="roastInputThree" src={DarkRoast} />
 									</label>
@@ -223,8 +229,13 @@ roast,
 							className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center"
 							id="tracker"
 						>
-						{this.renderRedirect()}
-							<button type="button" id="brew-btn" className="btn btn-primary" onClick={this.setRedirect}>
+							{this.renderRedirect()}
+							<button
+								type="button"
+								id="brew-btn"
+								className="btn btn-primary"
+								onClick={this.setRedirect}
+							>
 								Brew!
 							</button>
 						</div>

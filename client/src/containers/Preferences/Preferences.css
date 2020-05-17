@@ -1,133 +1,143 @@
 /* card top margin */
 #cardCalculation {
-    margin-top: 5%;
-    margin-bottom: 10%;
+	margin-top: 5%;
+	margin-bottom: 10%;
 }
 /* card border color */
-div#card-body{
-    border-color: black;
-    background-color: rgb(250, 250, 250);
-    padding-bottom: 3%;
+div#card-body {
+	border-color: black;
+	background-color: rgb(250, 250, 250);
+	padding-bottom: 3%;
 }
 /* input for small cup */
 #inputOne {
-    border-radius: 50%;
-    height: 90%;
-    width: 60%;
+	border-radius: 50%;
+	height: 90%;
+	width: 60%;
+	margin-left: 20%;
 }
 /* input for med cup */
 #inputTwo {
-    border-radius: 50%;
-    height: 90%;
-    width: 60%;
+	border-radius: 50%;
+	height: 90%;
+	width: 60%;
+	margin-left: 20%;
 }
 /* input for large cup */
 #inputThree {
-    border-radius: 50%;
-    height: 90%;
-    width: 60%;
+	border-radius: 50%;
+	height: 90%;
+	width: 60%;
+	margin-left: 20%;
 }
 /* hover for small cup */
-#inputOne:hover{
-    border: solid black;
+#inputOne:hover {
+	border: solid black;
 }
 /* hover for med cup */
-#inputTwo:hover{
-    border: solid black;
+#inputTwo:hover {
+	border: solid black;
 }
 /* hover for large cup */
-#inputThree:hover{
-    border: solid black;
+#inputThree:hover {
+	border: solid black;
 }
 /* desired quantity text */
 #desiredTextFirst {
-    text-align:center;
-    margin-bottom: 5%;  
-    margin-top: 3%;
-    color: #2a190f;
-    font-size: 40px;
+	text-align: center;
+	margin-bottom: 5%;
+	margin-top: 3%;
+	color: #2a190f;
+	font-size: 40px;
 }
 /* desired strength and bean roast text */
-#desiredText{
-    text-align:center;
-    margin-bottom: 5%;
-    margin-top: 7%;
-    color: #2a190f;
-    font-size: 40px;
+#desiredText {
+	text-align: center;
+	margin-bottom: 5%;
+	margin-top: 7%;
+	color: #2a190f;
+	font-size: 40px;
 }
 /* small, med, & large quantity text */
 #textsml {
-    position: absolute;
-    margin-top: 50%;
-    color: #2a190f;
-    font-size: 20px;
+	font-weight: bold;
+	position: absolute;
+	margin-top: 50%;
+	color: #2a190f;
+	font-size: 20px;
 }
 /* weak, med, & strong strength text */
 #textwms {
-    position: absolute;
-    margin-top: 5%;
-    color: #2a190f;
-    font-size: 20px;
+	font-weight: bold;
+	position: absolute;
+	margin-top: 52%;
+	color: #2a190f;
+	font-size: 20px;
 }
 /* light, med, & dark roast text */
 #textlmd {
-    position: absolute;
-    margin-top: 50%;
-    color: #2a190f;
-    font-size: 20px;
+	font-weight: bold;
+	position: absolute;
+	margin-top: 50%;
+	color: #2a190f;
+	font-size: 20px;
 }
 /* input for light cup */
 #roastInputOne {
-    border-radius: 50%;
-    height: 90%;
-    width: 60%;
+	border-radius: 50%;
+	height: 90%;
+	width: 60%;
+	margin-left: 20%;
 }
 /* input for med cup */
 #roastInputTwo {
-    border-radius: 50%;
-    height: 90%;
-    width: 60%;
+	border-radius: 50%;
+	height: 90%;
+	width: 60%;
+	margin-left: 20%;
 }
 /* input for dark cup */
 #roastInputThree {
-    border-radius: 50%;
-    height: 90%;
-    width: 60%;
+	border-radius: 50%;
+	height: 90%;
+	width: 60%;
+	margin-left: 20%;
 }
 /* hover for light cup */
-#roastInputOne:hover{
-    border: solid black;
+#roastInputOne:hover {
+	border: solid black;
 }
 /* hover for med cup */
-#roastInputTwo:hover{
-    border: solid black;
+#roastInputTwo:hover {
+	border: solid black;
 }
 /* hover for dark cup */
-#roastInputThree:hover{
-    border: solid black;
+#roastInputThree:hover {
+	border: solid black;
 }
 /* brew btn */
 #brew-btn {
-    color: white;
-    font-weight: bold;
-    font-size: large;
-    background-color: #e4bc7e;
+	color: white;
+	font-weight: bold;
+	font-size: large;
+	background-color: #e4bc7e;
 	border-color: #d3a664;
-    border-width: 3px;
-    margin-top: 40%;
+	border-width: 3px;
+	margin-top: 20%;
 }
 /* brew btn hover features */
 #brew-btn:hover {
 	background-color: #d3a664;
 	border-color: #d3a664;
 }
-/* [type=radio] { 
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  } */
-  [type=radio]:checked + img {
-    box-shadow: 0 0 3pt 2pt rgb(0, 0, 0);
-    
-  }
+/* hides radio btn */
+#hideRadioBtn[type="radio"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+/* radio button checked selection */
+[type="radio"]:checked + img {
+	box-shadow: 0 0 3pt 2pt rgb(0, 0, 0);
+}

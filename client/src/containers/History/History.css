@@ -1,32 +1,10 @@
 /* star checked */
 .checked {
-    color: orange;
-  }
-  /* brew btn */
-#brew-btn-brew {
-    color: white;
-    font-weight: bold;
-    font-size: large;
-    background-color: #e4bc7e;
-	border-color: #d3a664;
-    border-width: 3px;
+	color: orange;
 }
-/* brew btn hover features */
-#brew-btn-brew:hover {
-	background-color: #d3a664;
-	border-color: #d3a664;
+.fa.fa-star.fa-2x {
+	color: orange;
 }
-/* delete btn */
-#delete-btn {
-    color: white;
-    font-weight: bold;
-    font-size: large;
-    background-color: #d36159;
-	border-color: #c0463e;
-    border-width: 3px;
-}
-/* delete btn hover features */
-#delete-btn:hover {
-	background-color: #c0463e;
-	border-color: #c0463e;
+.table.table-striped.table-borderless {
+    margin-bottom: 150px;
 }
