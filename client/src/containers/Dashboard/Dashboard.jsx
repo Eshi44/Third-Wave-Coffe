@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 class Dashboard extends Component {
 	componentDidMount(username) {
 		//redirect if no token
+		//jank
 		if (localStorage.length == 0) {
 			window.history.pushState(
 				`http://localhost:3000/dashboard/${url}`,

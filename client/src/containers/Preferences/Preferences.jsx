@@ -22,16 +22,19 @@ class Chemex extends Component {
 
 	setRedirect = () => {
 		var method = $("#preferencesHeader").html();
-		var strength = document.querySelectorAll("input[name=strength]:checked")[0]
-			.value;
-		var size = document.querySelectorAll("input[name=size]:checked")[0].value;
-		var roast = document.querySelectorAll("input[name=roast]:checked")[0].value;
+		var strength = document.querySelectorAll("input[name=strength]:checked")[0];
+		var size = document.querySelectorAll("input[name=size]:checked")[0];
+		var roast = document.querySelectorAll("input[name=roast]:checked")[0];
 
-		this.saveDrink(method, strength, size, roast);
-
-		// this.setState({
-		// 	redirect: true,
-		// });
+		if (strength && size && roast)
+			this.saveDrink(method, strength.value, size.value, roast.value);
+		else {
+		$("#brewErrorMessage").append(`<div className="row d-flex justify-content-center">
+		<div id="errorBox"className="alert alert-danger" role="alert">
+		<p>Must select a quantity, strength, and roast!</p>
+		</div>
+	</div>`);
+		}
 	};
 
 	renderRedirect = () => {
@@ -46,8 +49,6 @@ class Chemex extends Component {
 		}
 	};
 
-
-
 	saveDrink(method, strength, size, roast) {
 		const username = localStorage.getItem("username");
 		axios
@@ -60,17 +61,19 @@ class Chemex extends Component {
 			.then(async (response) => {
 				console.log("SAVE SUCCESS - RESPONSE DATA BELOW");
 				console.log(response);
-				console.log(response.data.drinks[(response.data.drinks.length - 1)]);
+				console.log(response.data.drinks[response.data.drinks.length - 1]);
 				console.log(size);
 				console.log(strength);
 				console.log(roast);
 				if (localStorage.getItem("drinkID") !== "")
 					localStorage.removeItem("drinkID");
-				localStorage.setItem("drinkID", response.data.drinks[(response.data.drinks.length - 1)]);
+				localStorage.setItem(
+					"drinkID",
+					response.data.drinks[response.data.drinks.length - 1]
+				);
 				this.setState({
 					redirect: true,
 				});
-
 			})
 			.catch((err) => {
 				console.log(err);
@@ -81,7 +84,6 @@ class Chemex extends Component {
 		var queryString = window.location.search;
 		var brewMethod = queryString.split("?")[1];
 		this.setState({ name: brewMethod });
-
 	}
 
 	render() {
@@ -227,7 +229,11 @@ class Chemex extends Component {
 							</div>
 						</div>
 					</div>
-
+					<div className="row">
+					<div className="col col-sm-4 col-md-4 col-lg-4"></div>
+					<div className="col col-sm-4 col-md-4 col-lg-4" id="brewErrorMessage"></div>
+					<div className="col col-sm-4 col-md-4 col-lg-4"></div>
+					</div>
 					<div className="row">
 						<div className="col col-sm-4 col-md-4 col-lg-4"></div>
 						<div

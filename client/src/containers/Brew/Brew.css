@@ -27,11 +27,26 @@
 	margin-top: 5%;
 }
 /* star checked */
-  #stars{
-	  box-shadow: none;
-	  height: 50px;
-	
-  }
- .fa.fa-star.fa-3x{
+#stars {
+	box-shadow: none;
+	height: 50px;
+}
+/* margin for stars */
+.fa.fa-star.fa-3x {
 	margin-right: 35px;
-  }
+}
+/* card padding */
+#paddingPlease {
+	padding-left: 60px;
+}
+/* instructions text size */
+#instructionsText {
+	color: #2a190f;
+	font-size: 18px;
+}
+/* state text */
+#instructionsTextBold {
+	color: #c99343;
+	font-size: 20px;
+	font-weight: bolder;
+}

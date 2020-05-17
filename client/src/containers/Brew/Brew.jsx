@@ -9,7 +9,7 @@ import $ from "jquery";
 class Brew extends Component {
 	state = {
 		drinkID: "",
-		brew:{},
+		brew: {},
 	};
 
 	componentDidMount() {
@@ -33,19 +33,18 @@ class Brew extends Component {
 					strength: response.data.strength,
 				};
 				console.log(brew);
-				this.setState({brew:brew})
-				if(this.state.brew.notes !== "")
-				$("#exampleFormControlTextarea1").val(this.state.brew.notes);
-				if(this.state.brew.rating !== 0) {
-				$(`#star${this.state.brew.rating}`).prop("checked", true);
-				this.starClicked();
+				this.setState({ brew: brew });
+				if (this.state.brew.notes !== "")
+					$("#exampleFormControlTextarea1").val(this.state.brew.notes);
+				if (this.state.brew.rating !== 0) {
+					$(`#star${this.state.brew.rating}`).prop("checked", true);
+					this.starClicked();
 				}
 				this.showInstructions();
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-
 	}
 
 	starClicked() {
@@ -62,54 +61,137 @@ class Brew extends Component {
 			val--;
 		}
 	}
-	
 
-	showInstructions() { 
-
+	showInstructions() {
 		var instructions = {
-		  ratio : "",
-		  groundSize: "",
-		  groundAmount: "",
-		  waterAmount: "",
-		  waterTemp: "",
-		  time: "",
+			ratio: "",
+			groundSize: "",
+			groundAmount: "",
+			waterAmount: "",
+			waterTemp: "",
+			time: "",
 		};
 
-		if(this.state.brew.method === "Chemex") {
-		instructions.ratio = 1.5 * 300;
+		//method conditionals
+		if (this.state.brew.method === "Chemex") {
+			instructions.groundSize = "medium coarsely ground";
+			instructions.time = "3min 30s";
 		}
 
-		if(this.state.brew.method === "Aeropress") {
-			instructions.ratio = 1.5 * 300;
-			}
-			if(this.state.brew.method === "Frenchpress") {
-				instructions.ratio = 1.5 * 300;
-				}
+		if (this.state.brew.method === "Aeropress") {
+			instructions.groundSize = "finely ground";
+			instructions.time = "2min 15s";
+		}
+		if (this.state.brew.method === "Frenchpress") {
+			instructions.groundSize = "coarsely ground";
+			instructions.time = "4min 25s";
+		}
+		//roast conditionals
+		if (this.state.brew.roast === "Light") {
+			instructions.waterTemp = "200°F";
+		}
+		if (this.state.brew.roast === "Medium") {
+			instructions.waterTemp = "195°F";
+		}
+		if (this.state.brew.roast === "Dark") {
+			instructions.waterTemp = "190°F";
+		}
 
+		// strength conditionals
+		// strong
+		if (
+			this.state.brew.strength === "Strong" &&
+			this.state.brew.size === "Large"
+		) {
+			instructions.ratio = "13g water to 1g coffee";
+			instructions.groundAmount = "13.85g";
+			instructions.waterAmount = "180mL";
+		}
+		if (
+			this.state.brew.strength === "Strong" &&
+			this.state.brew.size === "Medium"
+		) {
+			instructions.ratio = "13g water to 1g coffee";
+			instructions.groundAmount = "11.54g";
+			instructions.waterAmount = "150mL";
+		}
+		if (
+			this.state.brew.strength === "Strong" &&
+			this.state.brew.size === "Small"
+		) {
+			instructions.ratio = "13g water to 1g coffee";
+			instructions.groundAmount = "9.23g";
+			instructions.waterAmount = "120mL";
+		}
+		//medium
+		if (
+			this.state.brew.strength === "Medium" &&
+			this.state.brew.size === "Large"
+		) {
+			instructions.ratio = "16g water to 1g coffee";
+			instructions.groundAmount = "11.25g";
+			instructions.waterAmount = "180mL";
+		}
+		if (
+			this.state.brew.strength === "Medium" &&
+			this.state.brew.size === "Medium"
+		) {
+			instructions.ratio = "16g water to 1g coffee";
+			instructions.groundAmount = "9.38g";
+			instructions.waterAmount = "150mL";
+		}
+		if (
+			this.state.brew.strength === "Medium" &&
+			this.state.brew.size === "Small"
+		) {
+			instructions.ratio = "16g water to 1g coffee";
+			instructions.groundAmount = "7.50g";
+			instructions.waterAmount = "120mL";
+		}
+		//weak
+		if (
+			this.state.brew.strength === "Weak" &&
+			this.state.brew.size === "Large"
+		) {
+			instructions.ratio = "18g water to 1g coffee";
+			instructions.groundAmount = "10g";
+			instructions.waterAmount = "180mL";
+		}
 
-				if(this.state.brew.strength === "Strong") {
-					console.log("ANGBODY HOME???");
-					instructions.ratio += 100;
-				}
-	
+		if (
+			this.state.brew.strength === "Weak" &&
+			this.state.brew.size === "Medium"
+		) {
+			instructions.ratio = "18g water to 1g coffee";
+			instructions.groundAmount = "8.33g";
+			instructions.waterAmount = "150mL";
+		}
 
+		if (
+			this.state.brew.strength === "Weak" &&
+			this.state.brew.size === "Small"
+		) {
+			instructions.ratio = "18g water to 1g coffee";
+			instructions.groundAmount = "7.17g";
+			instructions.waterAmount = "120mL";
+		}
 
-		$("#card-body").append(`<div className="card-body">
+		$("#card-body").append(`<div className="card-body" id="paddingPlease">
 		<div className="col col-sm-4 col-md-4 col-lg-4">
-			<h4>Instructions:</h4>
-			<p>.....</p>
-			<h5>Ratio: Use a ratio of ${instructions.ratio} grams of HOT BEANS to water </h5>
-			<h5>Ground Size:</h5>
-			<h5>Ground Amount:</h5>
-			<h5>Water Amount:</h5>
-			<h5>Water Temp:</h5>
-			<h5>Time:</h5>
+			<h4>Instructions: </h4>
+			<p id="instructionsTextBold">${this.state.brew.size} sized, ${this.state.brew.strength} strength, ${this.state.brew.roast} roast </p>
+			<p id= "instructionsText"> First, take out and set aside your ${this.state.brew.method}. Grab approximatley ${instructions.waterAmount} of water and ${instructions.groundAmount} of ${instructions.groundSize} coffee.
+			Next, boil the ${instructions.waterAmount} of water to ${instructions.waterTemp}. Brew coffee for approximately ${instructions.time}.</p>
+			<h5>Ratio:</h5><p id= "instructionsText">${instructions.ratio}</p>
+			<h5>Ground Size:</h5> <p id= "instructionsText">${instructions.groundSize}</p>
+			<h5>Ground Amount:</h5> <p id= "instructionsText">${instructions.groundAmount}</p>
+			<h5>Water Amount:</h5>  <p id= "instructionsText">${instructions.waterAmount}</p>
+			<h5>Water Temp:</h5><p id= "instructionsText">${instructions.waterTemp}</p>
+			<h5>Time:</h5><p id= "instructionsText">${instructions.time}</p>
 		</div>
 		<div className="col col-sm-4 col-md-4 col-lg-4"></div>
 		<div className="col col-sm-4 col-md-4 col-lg-4"></div>
 	</div>`);
-
-
 	}
 
 	save() {
@@ -160,59 +242,46 @@ class Brew extends Component {
 							className="col col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center"
 							id="setBrewRating"
 						>
-							
-								<input
-									type="radio"
-									onClick={this.starClicked}
-									name="rating"
-									value="1"
-									id="star1"
-									className="fa fa-star fa-3x"
-								/>{" "}
-								
-							
-							
-								<input
-									type="radio"
-									onClick={this.starClicked}
-									name="rating"
-									value="2"
-									id="star2"
-									className="fa fa-star fa-3x"
-								/>{" "}
-								
-							
-							
-								<input
-									type="radio"
-									onClick={this.starClicked}
-									name="rating"
-									value="3"
-									id="star3"
-									className="fa fa-star fa-3x"
-								/>{" "}
-								
-						
-								<input
-									type="radio"
-									onClick={this.starClicked}
-									name="rating"
-									value="4"
-									id="star4"
-									className="fa fa-star fa-3x"
-								/>{" "}
-							
-							
-								<input
-									type="radio"
-									onClick={this.starClicked}
-									name="rating"
-									value="5"
-									id="star5"
-									className="fa fa-star fa-3x"
-								/>{" "}
-								
-							
+							<input
+								type="radio"
+								onClick={this.starClicked}
+								name="rating"
+								value="1"
+								id="star1"
+								className="fa fa-star fa-3x"
+							/>{" "}
+							<input
+								type="radio"
+								onClick={this.starClicked}
+								name="rating"
+								value="2"
+								id="star2"
+								className="fa fa-star fa-3x"
+							/>{" "}
+							<input
+								type="radio"
+								onClick={this.starClicked}
+								name="rating"
+								value="3"
+								id="star3"
+								className="fa fa-star fa-3x"
+							/>{" "}
+							<input
+								type="radio"
+								onClick={this.starClicked}
+								name="rating"
+								value="4"
+								id="star4"
+								className="fa fa-star fa-3x"
+							/>{" "}
+							<input
+								type="radio"
+								onClick={this.starClicked}
+								name="rating"
+								value="5"
+								id="star5"
+								className="fa fa-star fa-3x"
+							/>{" "}
 						</div>
 						<div className="col col-sm-4 col-md-4 col-lg-4 ">
 							<div class="form-group">
@@ -247,8 +316,7 @@ class Brew extends Component {
 							</Link>{" "}
 						</div>
 						<div className="container" id="cardCalculation">
-							<div className="card" id="card-body">
-							</div>
+							<div className="card" id="card-body"></div>
 						</div>
 					</div>
 				</div>

@@ -32,15 +32,15 @@ div#card-body {
 }
 /* hover for small cup */
 #inputOne:hover {
-	border: solid black;
+	cursor: pointer;
 }
 /* hover for med cup */
 #inputTwo:hover {
-	border: solid black;
+	cursor: pointer;
 }
 /* hover for large cup */
 #inputThree:hover {
-	border: solid black;
+	cursor: pointer;
 }
 /* desired quantity text */
 #desiredTextFirst {
@@ -105,15 +105,15 @@ div#card-body {
 }
 /* hover for light cup */
 #roastInputOne:hover {
-	border: solid black;
+	cursor: pointer;
 }
 /* hover for med cup */
 #roastInputTwo:hover {
-	border: solid black;
+	cursor: pointer;
 }
 /* hover for dark cup */
 #roastInputThree:hover {
-	border: solid black;
+	cursor: pointer;
 }
 /* brew btn */
 #brew-btn {
@@ -123,7 +123,7 @@ div#card-body {
 	background-color: #e4bc7e;
 	border-color: #d3a664;
 	border-width: 3px;
-	margin-top: 20%;
+	margin-top: 10%;
 }
 /* brew btn hover features */
 #brew-btn:hover {
@@ -139,5 +139,18 @@ div#card-body {
 }
 /* radio button checked selection */
 [type="radio"]:checked + img {
-	box-shadow: 0 0 3pt 2pt rgb(0, 0, 0);
+	box-shadow: 0 0 5pt 4pt #d3a664;
+}
+/* error message */
+#errorBox {
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 20px;
+	font-size: 20px;
+	color: #721c24;
+	font-weight: bold;
+	text-align: center;
+	border: 3px solid #da7a84;
+	background-color: #f8d7da;
 }

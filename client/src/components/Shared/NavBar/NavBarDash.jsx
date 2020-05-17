@@ -30,7 +30,7 @@ const NavBar = (props) => {
 				</button>
 			</Link>
 
-		<h2 id="welcome">{window.localStorage.username} </h2>
+		<h2 id="welcome">Welcome, {window.localStorage.username} </h2>
 
 		</nav>
 	);
