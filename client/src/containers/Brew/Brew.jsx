@@ -195,11 +195,14 @@ class Brew extends Component {
 	}
 
 	save() {
-		var rating = document.querySelectorAll("input[name=rating]:checked")[0]
-			.value;
-		var drinkID = localStorage.getItem("drinkID");
+		var rating = document.querySelectorAll("input[name=rating]:checked")[0];
 
-		if (rating !== null) {
+		var drinkID = localStorage.getItem("drinkID");
+		console.log("WUTTTT????????");
+		console.log(rating);
+
+		if (rating !== undefined) {
+			rating = rating.value;
 			axios
 				.put(`/api/history/update/ratings/${drinkID}`, {
 					rating,
@@ -216,7 +219,7 @@ class Brew extends Component {
 
 		var notes = $("#exampleFormControlTextarea1").val();
 		console.log(notes);
-		if (notes !== null) {
+		if (notes !== undefined) {
 			axios
 				.put(`/api/history/update/notes/${drinkID}`, {
 					notes,
@@ -284,7 +287,7 @@ class Brew extends Component {
 							/>{" "}
 						</div>
 						<div className="col col-sm-4 col-md-4 col-lg-4 ">
-							<div class="form-group">
+							<div className="form-group">
 								<label htmlFor="exampleFormControlTextarea1" id="notes">
 									Notes:
 								</label>

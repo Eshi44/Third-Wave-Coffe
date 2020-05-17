@@ -12,14 +12,15 @@ class Dashboard extends Component {
 	componentDidMount(username) {
 		//redirect if no token
 		//jank
-		if (localStorage.length == 0) {
+		var url = window.localStorage.username;
+		if (localStorage.length === 0) {
 			window.history.pushState(
 				`http://localhost:3000/dashboard/${url}`,
 				"url",
 				"/403"
 			);
 			window.location.reload(true);
-		} else if (localStorage.length == 0) {
+		} else if (localStorage.length === 0) {
 			window.history.pushState(
 				`https://third-wave-coffee-app.herokuapp.com/dashboard/${url}`,
 				"url",
@@ -31,7 +32,7 @@ class Dashboard extends Component {
 		localStorage.getItem("username", username);
 		console.log("username");
 		console.log(window.localStorage.username);
-		var url = window.localStorage.username;
+		
 
 		if (window.location.href === "http://localhost:3000/dashboard/") {
 			window.history.pushState(

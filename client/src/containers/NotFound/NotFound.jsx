@@ -12,14 +12,14 @@ class NotFound extends Component {
 					<div className="row">
 						<div className="col col-sm-4 col-md-2 col-lg-2"></div>
 						<div className="col col-sm-4 col-md-6 col-lg-6">
-							<h2 id="error">404 Error</h2>
+							<h2 id="error">Error!</h2>
 						</div>
 						<div className="col col-sm-4 col-md-4 col-lg-4"></div>
 					</div>
 					<div className="row">
 						<div className="col col-sm-4 col-md-3 col-lg-3">
 							<Link to="/">
-								<button
+								<button id="home"
 									type="button"
 									id="login-btn"
 									className="btn btn-primary"
