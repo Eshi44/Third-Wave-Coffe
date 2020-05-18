@@ -6,7 +6,6 @@ import "./Brew.css";
 import axios from "axios";
 import $ from "jquery";
 
-
 class Brew extends Component {
 	state = {
 		drinkID: "",
@@ -15,7 +14,7 @@ class Brew extends Component {
 
 	componentDidMount() {
 		var drinkID = localStorage.getItem("drinkID");
-		console.log("IS THERE A DRINK ID IN LOCAL?????");
+		// console.log("IS THERE A DRINK ID IN LOCAL?????");
 		console.log(drinkID);
 		this.setState({ drinkID: drinkID });
 		var brew;
@@ -23,7 +22,7 @@ class Brew extends Component {
 		axios
 			.get(`/api/history/one/${drinkID}`, {})
 			.then(async (response) => {
-				console.log("I AM about to log response");
+				// console.log("I AM about to log response");
 				console.log(response);
 				brew = {
 					method: response.data.method,
@@ -49,7 +48,7 @@ class Brew extends Component {
 	}
 
 	starClicked() {
-		console.log("YOU CLIKEDDD A STARRR!");
+		// console.log("YOU CLIKEDDD A STARRR!");
 		var val = document.querySelectorAll("input[name=rating]:checked")[0].value;
 		console.log(val);
 		var clear = 5;
@@ -72,7 +71,7 @@ class Brew extends Component {
 			waterTemp: "",
 			time: "",
 		};
-
+		//this is a sin>>
 		//method conditionals
 		if (this.state.brew.method === "Chemex") {
 			instructions.groundSize = "medium coarsely ground";
@@ -199,7 +198,7 @@ class Brew extends Component {
 		var rating = document.querySelectorAll("input[name=rating]:checked")[0];
 
 		var drinkID = localStorage.getItem("drinkID");
-		console.log("WUTTTT????????");
+		// console.log("WUTTTT????????");
 		console.log(rating);
 
 		if (rating !== undefined) {
@@ -209,9 +208,7 @@ class Brew extends Component {
 					rating,
 				})
 				.then(async (response) => {
-					console.log("I AM SAVING ME A RATING");
-
-					// test to make sure empty case works
+					// console.log("I AM SAVING ME A RATING");
 				})
 				.catch((err) => {
 					console.log(err);
@@ -226,9 +223,7 @@ class Brew extends Component {
 					notes,
 				})
 				.then(async (response) => {
-					console.log("I AM SAVING ME A NOTE");
-
-					// test to make sure empty case works
+					// console.log("I AM SAVING ME A NOTE");
 				})
 				.catch((err) => {
 					console.log(err);
@@ -290,7 +285,7 @@ class Brew extends Component {
 						<div className="col col-sm-4 col-md-4 col-lg-4 ">
 							<div className="form-group">
 								<label htmlFor="exampleFormControlTextarea1" id="notes">
-										Notes:
+									Notes:
 								</label>
 								<textarea
 									className="form-control"

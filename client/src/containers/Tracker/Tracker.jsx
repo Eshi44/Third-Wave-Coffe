@@ -84,7 +84,7 @@ class Tracker extends Component {
 					{
 						label: "Coffee Intake",
 						borderColor: "#2a190f",
-						data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+						data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 2, 4],
 					},
 				],
 			},
