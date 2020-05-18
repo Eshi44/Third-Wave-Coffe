@@ -103,7 +103,7 @@ class Brew extends Component {
 			this.state.brew.strength === "Strong" &&
 			this.state.brew.size === "Large"
 		) {
-			instructions.ratio = "13g water to 1g coffee";
+			instructions.ratio = "13mL water to 1g coffee";
 			instructions.groundAmount = "13.85g";
 			instructions.waterAmount = "180mL";
 		}
@@ -111,7 +111,7 @@ class Brew extends Component {
 			this.state.brew.strength === "Strong" &&
 			this.state.brew.size === "Medium"
 		) {
-			instructions.ratio = "13g water to 1g coffee";
+			instructions.ratio = "13mL water to 1g coffee";
 			instructions.groundAmount = "11.54g";
 			instructions.waterAmount = "150mL";
 		}
@@ -119,7 +119,7 @@ class Brew extends Component {
 			this.state.brew.strength === "Strong" &&
 			this.state.brew.size === "Small"
 		) {
-			instructions.ratio = "13g water to 1g coffee";
+			instructions.ratio = "13mL water to 1g coffee";
 			instructions.groundAmount = "9.23g";
 			instructions.waterAmount = "120mL";
 		}
@@ -128,7 +128,7 @@ class Brew extends Component {
 			this.state.brew.strength === "Medium" &&
 			this.state.brew.size === "Large"
 		) {
-			instructions.ratio = "16g water to 1g coffee";
+			instructions.ratio = "16mL water to 1g coffee";
 			instructions.groundAmount = "11.25g";
 			instructions.waterAmount = "180mL";
 		}
@@ -136,7 +136,7 @@ class Brew extends Component {
 			this.state.brew.strength === "Medium" &&
 			this.state.brew.size === "Medium"
 		) {
-			instructions.ratio = "16g water to 1g coffee";
+			instructions.ratio = "16mL water to 1g coffee";
 			instructions.groundAmount = "9.38g";
 			instructions.waterAmount = "150mL";
 		}
@@ -144,7 +144,7 @@ class Brew extends Component {
 			this.state.brew.strength === "Medium" &&
 			this.state.brew.size === "Small"
 		) {
-			instructions.ratio = "16g water to 1g coffee";
+			instructions.ratio = "16mL water to 1g coffee";
 			instructions.groundAmount = "7.50g";
 			instructions.waterAmount = "120mL";
 		}
@@ -153,7 +153,7 @@ class Brew extends Component {
 			this.state.brew.strength === "Weak" &&
 			this.state.brew.size === "Large"
 		) {
-			instructions.ratio = "18g water to 1g coffee";
+			instructions.ratio = "18mL water to 1g coffee";
 			instructions.groundAmount = "10g";
 			instructions.waterAmount = "180mL";
 		}
@@ -162,7 +162,7 @@ class Brew extends Component {
 			this.state.brew.strength === "Weak" &&
 			this.state.brew.size === "Medium"
 		) {
-			instructions.ratio = "18g water to 1g coffee";
+			instructions.ratio = "18mL water to 1g coffee";
 			instructions.groundAmount = "8.33g";
 			instructions.waterAmount = "150mL";
 		}
@@ -171,7 +171,7 @@ class Brew extends Component {
 			this.state.brew.strength === "Weak" &&
 			this.state.brew.size === "Small"
 		) {
-			instructions.ratio = "18g water to 1g coffee";
+			instructions.ratio = "18mL water to 1g coffee";
 			instructions.groundAmount = "7.17g";
 			instructions.waterAmount = "120mL";
 		}
